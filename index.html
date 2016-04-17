@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" ng-app="QuickHub">
 <head>
 	<title>QuickHub</title>
 	
@@ -10,7 +10,7 @@
 	
 	</head>
 
-<body>
+<body ng-controller="gitHubDataController">
 	
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header" id="qhHeader">
@@ -20,14 +20,14 @@
     </div>
     <!-- Tabs -->
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
+      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Display Profile Info</a>
       <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
       <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
       <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
       <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
       <a href="#scroll-tab-6" class="mdl-layout__tab">Tab 6</a>
 		<div class="mdl-layout-spacer"></div>
-	  <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link github"><i class="material-icons">link</i><span>GitHub</span></a>
+	  <a href="https://github.com/NeenuAVarghese/QuickHub" class="mdl-navigation__link github"><i class="material-icons">link</i><span>GitHub</span></a>
     </div>
   </header>
   <div class="mdl-layout__drawer" id="qhDrawer">
@@ -36,12 +36,13 @@
 		  <a href="https://github.com/NeenuAVarghese/QuickHub" class="mdl-navigation__link"><i class="material-icons">link</i><span>GitHub</span></a>
 	  </nav>
   </div>
-  <main class="mdl-layout__content" id="qhContent">
+  
+	<main class="mdl-layout__content" id="qhContent">
     <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
       <div class="page-content">	  
 		  
 		  
-		  <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="qhTab1Card">
+<div class="mdl-card mdl-shadow--2dp qhTab1Card" ng-hide="showme">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Welcome</h2>
   </div>
@@ -50,35 +51,91 @@
     Mauris sagittis pellentesque lacus eleifend lacinia...
   </div>
   <div class="mdl-card__actions mdl-card--border">
-    <button id="qhTab1Search" type="button" class="mdl-button mdl-button--primary"><i class="material-icons">search</i>Search Repositories</button>   
+    <form action="#">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label" for="sample3">Enter GitHub Username</label>
+	  <input class="mdl-textfield__input" type="text" id="qhTab1SearchUserText" ng-model="qhUsername">
+  </div>
+<button type="button" id="qhTab1SearchUserButton" class="mdl-button mdl-button--primary" ng-click='qhGetUserInfo(qhUsername)'><i class="material-icons">search</i>Search</button>
+</form>
+	  <p ng-show="success">No such Username found</p>
   </div>
   <div class="mdl-card__menu">
-    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="qhTab1Share" ng-click="showme=true">
       <i class="material-icons">share</i>
     </button>
   </div>
 </div>
 		  
 		  
-
-<dialog class="mdl-dialog" id="qhTab1getUserDetails">
-	<div class="mdl-dialog__title">
-		Pull User Data
-	</div>
-    <div class="mdl-dialog__content">
-	<form action="#">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <label class="mdl-textfield__label" for="sample3">Enter GitHub Username</label>
-	  <input class="mdl-textfield__input" type="text" id="qhTab1SearchUserText">
-  </div>
-</form>
-    </div>
-    <div class="mdl-dialog__actions">
-		<button type="button" id="qhTab1SearchUserButton" class="mdl-button mdl-button--primary"><i class="material-icons">search</i>Search</button>
-		<button type="button" id="qhTab1Close" class="mdl-button mdl-button--primary close"><i class="material-icons">close</i>Close</button>
-    </div>
-</dialog>
+<div ng-show="showme">	
+	<!--
+	
+-->	
+	<div class="mdl-grid" ng-init="userData=''">
+      <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--stretch">
+		<div class="qhimageGrid mdl-card mdl-shadow--2dp" ng-style="{'background-image': 'url(' + userData.data.avatar_url + ')' }"></div>
+		  <div class="qhusernamedetails">
+			<div class="qhname"><i class="material-icons">face</i>&nbsp;&nbsp;{{userData.data.name}}</div>
+		  <div class="qhlogin">&nbsp;{{userData.data.login}}</div>
+		  </div>
+		  <div class="qhuserlocationdetail">
+			  <div><i class="material-icons">location_on</i>&nbsp;&nbsp;{{userData.data.location}}</div>
+			  <div><i class="material-icons">av_timer</i>&nbsp;&nbsp;{{userData.data.created_at}}</div>
+		  </div>
+		  		 <div class="qhusergitdetail mdl-grid">
+			  <div class="mdl-cell mdl-cell--2-col"><a> </a>
+				  <strong class="qhshowcount d-block">{{userData.data.followers}}</strong>
+					 <span class="text-muted">Follower</span>
+				</div>
+					 <div class="mdl-cell mdl-cell--2-col"><a> </a>
+				  <strong class="qhshowcount d-block">{{userData.data.following}}</strong>
+					 <span class="text-muted">Following</span>
+				</div>
+		  </div>
+  
+		  </div>
+		<div class="mdl-cell mdl-cell--1-col"></div>
+		<div class="mdl-cell mdl-cell--7-col mdl-cell--6-col-phone">
 		
+			
+			<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <!-- Tab Bars -->
+  <div class="mdl-tabs__tab-bar">
+      <a href="#asia-panel" class="mdl-tabs__tab is-active"><i class="material-icons">note_add</i>Contributions</a>
+      <a href="#europe-panel" class="mdl-tabs__tab"><i class="material-icons">collections_bookmark</i>Repositories</a>
+  </div>
+
+  <!-- MDL tab panels, is-active to denote currently active -->
+  <div class="mdl-tabs__panel is-active" id="asia-panel">
+    <ul>
+      
+    </ul>
+  </div>
+  
+  <!-- MDL Tab panel 2 -->
+  <div class="mdl-tabs__panel" id="europe-panel">
+    <ul>
+      
+    </ul>
+  </div>
+  
+  <!-- MDL Tab panel 3 -->
+  <div class="mdl-tabs__panel" id="america-panel">
+    <ul>
+      <li>United States of America</li>
+      <li>Canada</li>
+    </ul>
+  </div>
+  
+</div>
+			
+			
+			
+
+		</div>
+    </div>
+</div>	
 		  
 		</div>
     </section>
@@ -122,6 +179,7 @@
 	<!-- Jquery -->
 	<script src="libraries/jquery-1.12.3.min.js"></script>
 	<script src="scripts/quickhub-app.js"></script>
+	<!--<script src="scripts/index.js"></script>-->
 
 </body>
 </html>
