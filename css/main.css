@@ -56,3 +56,11 @@ qhimageGrid{
 	font-weight: 300;
 }
 
+.qhRepositoriesList {
+  width: 650px;
+}
+
+
+.mdl-list__item--three-line .mdl-list__item-primary-content .qhavatar{
+	float:left;
+}
