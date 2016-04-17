@@ -1,44 +1,37 @@
-'use strict';
+angular.module('QuickHub', [])
 
-var qh = {
-	landpage:{
-		section:{
-			navbar: "#qhHeader",
-			drawer: "#qhDrawer",
-			content: "#qhContent"
-		},
-		tab1SearchCard:{
-			handle: "#qhTab1Card",
-			field: "#qhTab1Search"
-		},
-		tab2SearchCard:{
-			handle: "#qhTab2Card",
-			field: "#qhTab2Search"
-		}
-	},
-	pullUserDataCardTab1:{
-		handle: "#qhTab1getUserDetails",
-		field:{
-			textBox: "#qhTab1SearchUserText",
-			searchButton: "qhTab1SearchUserButton",
-			closeButton: "#qhTab1Close"
-		}
-	}	
-};
-
-var dialog = document.querySelector("#qhTab1getUserDetails");
-
-function init(){
-	if (! dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
-        }
-}
-$(qh.landpage.tab1SearchCard.field).on('click', function(){
-	dialog.showModal();
+.controller('gitHubDataController', ['$scope','$http', function($scope, $http) {
+		$scope.showme = false;
+		$scope.success = false;
 	
-	$(qh.pullUserDataCardTab1.field.closeButton).on('click', function(){
-		dialog.close();
-	});
-});
-
-$(document).ready(init);
+	function qhsetUserInfo(){
+			$scope.qhUsername = "";
+			$scope.showme = true;
+			console.log($scope.userData);
+	}
+	
+	function qhLoadRepos(){
+		$http.get($scope.userData.repos_url)
+                .then(function (data) {
+                    $scope.repoData = data;
+                }, function(){
+			console.log("Repo data Not Found !");
+		});
+	}
+	
+	function qhGetUserInfo(username){
+			$http.get("https://api.github.com/users/"+username)
+        .then(function(data) {
+				console.log(data);
+			$scope.userData = data;
+			$scope.username = username;
+            qhsetUserInfo();
+			
+        },function(){
+			$scope.qhUsername = "";
+			$scope.success = true;
+		});
+	}
+	
+	$scope.qhGetUserInfo = qhGetUserInfo;
+}]);
