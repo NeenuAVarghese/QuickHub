@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<title>QuickHub</title>
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-amber.min.css" />
+	<link rel="stylesheet" href="libraries/dialog-polyfill.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	
+	</head>
+
+<body>
+	
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">QuickHub</span>
+    </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
+      <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
+      <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
+      <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
+      <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
+      <a href="#scroll-tab-6" class="mdl-layout__tab">Tab 6</a>
+		<div class="mdl-layout-spacer"></div>
+	  <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link github"><i class="material-icons">link</i><span>GitHub</span></a>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">QuickHub</span>
+	  <nav class="mdl-navigation">
+		  <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link"><i class="material-icons">link</i><span>GitHub</span></a>
+	  </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+      <div class="page-content">	  
+		  
+		  
+		  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Welcome</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Mauris sagittis pellentesque lacus eleifend lacinia...
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+	  
+    <button id="show-modal-example" type="button" class="mdl-button mdl-button--primary"><i class="material-icons">search</i>Search Repositories</button>
+	   
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
+</div>
+		  
+		  
+
+<dialog class="mdl-dialog" id="modal-example">
+	<div class="mdl-dialog__title">
+		Pull User Data
+	</div>
+    <div class="mdl-dialog__content">
+	<form action="#">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label" for="sample3">Enter GitHub Username</label>
+	  <input class="mdl-textfield__input" type="text" id="sample3">
+  </div>
+</form>
+    </div>
+    <div class="mdl-dialog__actions">
+		<button type="button" class="mdl-button mdl-button--primary"><i class="material-icons">search</i>Search</button>
+		<button type="button" class="mdl-button mdl-button--primary close"><i class="material-icons">close</i>Close</button>
+    </div>
+</dialog>
+		
+		  
+		</div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+      <div class="page-content"><!-- Your content goes here --></div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+      <div class="page-content"><!-- Your content goes here --></div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+      <div class="page-content"><!-- Your content goes here --></div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="scroll-tab-5">
+      <div class="page-content"><!-- Your content goes here --></div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="scroll-tab-6">
+      <div class="page-content"><!-- Your content goes here --></div>
+    </section>
+  </main>
+	<footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer__left-section">
+    <div class="mdl-logo">Title</div>
+    <ul class="mdl-mini-footer__link-list">
+      <li><a href="#">Help</a></li>
+      <li><a href="#">Privacy & Terms</a></li>
+    </ul>
+  </div>
+</footer>
+</div>
+	
+	
+	<!-- Material Design Lite Library -->
+	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <!-- Angular Material requires Angular.js Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+	<!-- Ployfill for dialog component-->
+	<script src="libraries/dialog-polyfill.js"></script>
+	<!-- Customn Javascript -->
+	<script src="scripts/quickhub-app.js"></script>
+
+</body>
+</html>
