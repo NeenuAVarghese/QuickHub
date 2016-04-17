@@ -13,7 +13,7 @@
 <body>
 	
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
+  <header class="mdl-layout__header" id="qhHeader">
     <div class="mdl-layout__header-row">
       <!-- Title -->
       <span class="mdl-layout-title">QuickHub</span>
@@ -30,18 +30,18 @@
 	  <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link github"><i class="material-icons">link</i><span>GitHub</span></a>
     </div>
   </header>
-  <div class="mdl-layout__drawer">
+  <div class="mdl-layout__drawer" id="qhDrawer">
     <span class="mdl-layout-title">QuickHub</span>
 	  <nav class="mdl-navigation">
-		  <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link"><i class="material-icons">link</i><span>GitHub</span></a>
+		  <a href="https://github.com/NeenuAVarghese/QuickHub" class="mdl-navigation__link"><i class="material-icons">link</i><span>GitHub</span></a>
 	  </nav>
   </div>
-  <main class="mdl-layout__content">
+  <main class="mdl-layout__content" id="qhContent">
     <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
       <div class="page-content">	  
 		  
 		  
-		  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+		  <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="qhTab1Card">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Welcome</h2>
   </div>
@@ -50,9 +50,7 @@
     Mauris sagittis pellentesque lacus eleifend lacinia...
   </div>
   <div class="mdl-card__actions mdl-card--border">
-	  
-    <button id="show-modal-example" type="button" class="mdl-button mdl-button--primary"><i class="material-icons">search</i>Search Repositories</button>
-	   
+    <button id="qhTab1Search" type="button" class="mdl-button mdl-button--primary"><i class="material-icons">search</i>Search Repositories</button>   
   </div>
   <div class="mdl-card__menu">
     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -63,7 +61,7 @@
 		  
 		  
 
-<dialog class="mdl-dialog" id="modal-example">
+<dialog class="mdl-dialog" id="qhTab1getUserDetails">
 	<div class="mdl-dialog__title">
 		Pull User Data
 	</div>
@@ -71,13 +69,13 @@
 	<form action="#">
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <label class="mdl-textfield__label" for="sample3">Enter GitHub Username</label>
-	  <input class="mdl-textfield__input" type="text" id="sample3">
+	  <input class="mdl-textfield__input" type="text" id="qhTab1SearchUserText">
   </div>
 </form>
     </div>
     <div class="mdl-dialog__actions">
-		<button type="button" class="mdl-button mdl-button--primary"><i class="material-icons">search</i>Search</button>
-		<button type="button" class="mdl-button mdl-button--primary close"><i class="material-icons">close</i>Close</button>
+		<button type="button" id="qhTab1SearchUserButton" class="mdl-button mdl-button--primary"><i class="material-icons">search</i>Search</button>
+		<button type="button" id="qhTab1Close" class="mdl-button mdl-button--primary close"><i class="material-icons">close</i>Close</button>
     </div>
 </dialog>
 		
@@ -100,6 +98,8 @@
       <div class="page-content"><!-- Your content goes here --></div>
     </section>
   </main>
+	
+	
 	<footer class="mdl-mini-footer">
   <div class="mdl-mini-footer__left-section">
     <div class="mdl-logo">Title</div>
@@ -119,6 +119,8 @@
 	<!-- Ployfill for dialog component-->
 	<script src="libraries/dialog-polyfill.js"></script>
 	<!-- Customn Javascript -->
+	<!-- Jquery -->
+	<script src="libraries/jquery-1.12.3.min.js"></script>
 	<script src="scripts/quickhub-app.js"></script>
 
 </body>
