@@ -19,7 +19,7 @@
     </div>
     <!-- Tabs -->
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Display Profile Info</a>
+      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Display Profile Information</a>
       <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
       <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
       <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
@@ -72,7 +72,7 @@
 	
 -->	
 	<div class="mdl-grid" ng-init="userData=''">
-      <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--stretch">
+      <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--stretch">
 		<div class="qhimageGrid mdl-card mdl-shadow--2dp" ng-style="{'background-image': 'url(' + userData.data.avatar_url + ')' }"></div>
 		  <div class="qhusernamedetails">
 			<div class="qhname"><i class="material-icons">face</i>&nbsp;&nbsp;{{userData.data.name}}</div>
@@ -101,20 +101,31 @@
 			<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
   <!-- Tab Bars -->
   <div class="mdl-tabs__tab-bar">
-      <a href="#asia-panel" class="mdl-tabs__tab is-active"><i class="material-icons">note_add</i>Contributions</a>
-      <a href="#europe-panel" class="mdl-tabs__tab"><i class="material-icons">collections_bookmark</i>Repositories</a>
+      <a href="#contributions-panel" class="mdl-tabs__tab is-active"><i class="material-icons">note_add</i>Contributions</a>
+      <a href="#repositories-panel" class="mdl-tabs__tab"><i class="material-icons">collections_bookmark</i>Repositories</a>
   </div>
 
   <!-- MDL tab panels, is-active to denote currently active -->
-  <div class="mdl-tabs__panel is-active" id="asia-panel">
+  <div class="mdl-tabs__panel is-active" id="contributions-panel">
     <ul>
       
     </ul>
   </div>
   
   <!-- MDL Tab panel 2 -->
-  <div class="mdl-tabs__panel" id="europe-panel">
-    <ul>
+  <div class="mdl-tabs__panel" id="repositories-panel">
+    <ul class="mdl-list qhRepositoriesList">
+		<li ng-repeat="repo in repoData" class="mdl-list__item mdl-list__item--three-line">
+			<span class="mdl-list__item-primary-content">
+				
+		<a href="{{repo.html_url}}" target="_blank"><i class="material-icons material-icons.md-48 qhavatar">near_me</i></a>
+	<span>{{repo.name}}</span>
+      <span class="mdl-list__item-text-body">{{repo.updated_at}}</span>
+    </span>
+    <span class="mdl-list__item-secondary-content">
+		<a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i><span>{{repo.stargazers_count}}</span></a>
+    </span>
+  </li>
       
     </ul>
   </div>
@@ -171,9 +182,7 @@
 	<!-- Material Design Lite Library -->
 	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   <!-- Angular Material requires Angular.js Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-	<!-- Ployfill for dialog component-->
-	<script src="libraries/dialog-polyfill.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 	<!-- Jquery -->
 	<script src="libraries/jquery-1.12.3.min.js"></script>
 	<!-- Customn Javascript -->
