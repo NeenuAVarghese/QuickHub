@@ -3,7 +3,7 @@
 	padding: 0px 16px 0px 16px;
 }
 
-.demo-card-wide > .mdl-card__title {
+.qhTab1Card > .mdl-card__title {
   color:cornsilk;
   height: 176px;
   background: url('../images/github.jpg') center / cover;
@@ -11,13 +11,48 @@
 .demo-card-wide > .mdl-card__menu {
   color: #000;
 }
-.demo-card-wide.mdl-card {
-  width: 512px;
-	position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -200px;
-	
+.qhTab1Card {
+width: 50%;
+margin: 10px auto 10px auto;
+display:block;
+}
+
+
+qhimageGrid{
+  width: 100% !important;
+  height: 100% !important;
+  background-position: center / cover;
+}
+
+.mdl-cell {
+  padding: 10px 0; 
+}
+.qhusernamedetails{
+	line-height: 1;
+	padding: 20px;
+}
+.qhuserlocationdetails{
+	padding: 20px;
+}
+.qhusergitdetail{
+	padding: 20px;
+}
+.qhshowcount{
+	color:darkcyan;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 1;
+}
+.qhname{
+  color: #000;
+  font-weight: normal;
+  font-size: 26px;
+}
+
+.qhlogin{
+	color: #666;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 300;
 }
 
