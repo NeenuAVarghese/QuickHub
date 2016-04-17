@@ -1,0 +1,23 @@
+.mdl-navigation__link{
+	color: cornsilk;
+	padding: 0px 16px 0px 16px;
+}
+
+.demo-card-wide > .mdl-card__title {
+  color:cornsilk;
+  height: 176px;
+  background: url('../images/github.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #000;
+}
+.demo-card-wide.mdl-card {
+  width: 512px;
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+	
+}
+
