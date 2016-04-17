@@ -7,13 +7,14 @@ angular.module('QuickHub', [])
 	function qhsetUserInfo(){
 			$scope.qhUsername = "";
 			$scope.showme = true;
-			console.log($scope.userData);
+		qhLoadRepos();
 	}
 	
 	function qhLoadRepos(){
-		$http.get($scope.userData.repos_url)
+		$http.get($scope.userData.data.repos_url)
                 .then(function (data) {
-                    $scope.repoData = data;
+                    $scope.repoData = data.data;
+					console.log($scope.repoData);
                 }, function(){
 			console.log("Repo data Not Found !");
 		});
@@ -22,7 +23,6 @@ angular.module('QuickHub', [])
 	function qhGetUserInfo(username){
 			$http.get("https://api.github.com/users/"+username)
         .then(function(data) {
-				console.log(data);
 			$scope.userData = data;
 			$scope.username = username;
             qhsetUserInfo();
