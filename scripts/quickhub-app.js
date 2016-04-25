@@ -1,15 +1,32 @@
 angular.module('QuickHub', [])
 
 .controller('gitHubDataController', ['$scope','$http', function($scope, $http) {
-		$scope.showme = false;
-		$scope.success = false;
+	$scope.functionalities = [
+		{"id": 0, "name": "Home"},
+		{"id": 1, "name": "Repositories"},
+		{"id": 2, "name": "Contributions"},
+		{"id": 3, "name": "Trending"},
+		{"id": 4, "name": "Pinned"}
+	];
+	$scope.currentDiv = 0;
+	$scope.handleDiv0 = true;
+	
+	
+	function qhSetCurrentDiv(divId){
+		console.log("in");
+		angular.element('#d'+$scope.currentDiv).addClass("neenuDiv");//add
+		angular.element('#d'+divId).removeClass("neenuDiv");//remove
+		$scope.currentDiv = divId;
+	}
 	
 	function qhsetUserInfo(){
 			$scope.qhUsername = "";
-			$scope.showme = true;
-		qhLoadRepos();
+			$scope.handleDiv0 = false;
+			qhLoadRepos();
 	}
-	
+	function setDefaultDiv(){
+		$scope.handleDiv0 = true;
+	}
 	function qhLoadRepos(){
 		$http.get($scope.userData.data.repos_url)
                 .then(function (data) {
@@ -25,13 +42,13 @@ angular.module('QuickHub', [])
         .then(function(data) {
 			$scope.userData = data;
 			$scope.username = username;
-            qhsetUserInfo();
-			
+            qhsetUserInfo();	
         },function(){
 			$scope.qhUsername = "";
-			$scope.success = true;
 		});
 	}
 	
 	$scope.qhGetUserInfo = qhGetUserInfo;
+	$scope.qhSetCurrentDiv = qhSetCurrentDiv;
+	$scope.setDefaultDiv = setDefaultDiv;
 }]);
