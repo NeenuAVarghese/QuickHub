@@ -1,66 +1,11 @@
-.mdl-navigation__link{
-	color: cornsilk;
-	padding: 0px 16px 0px 16px;
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-.qhTab1Card > .mdl-card__title {
-  color:cornsilk;
-  height: 176px;
-  background: url('../images/github.jpg') center / cover;
-}
-.demo-card-wide > .mdl-card__menu {
-  color: #000;
-}
-.qhTab1Card {
-width: 50%;
-margin: 10px auto 10px auto;
-display:block;
+footer {
+    margin: 50px 0;
 }
 
-
-qhimageGrid{
-  width: 100% !important;
-  height: 100% !important;
-  background-position: center / cover;
-}
-
-.mdl-cell {
-  padding: 10px 0; 
-}
-.qhusernamedetails{
-	line-height: 1;
-	padding: 20px;
-}
-.qhuserlocationdetails{
-	padding: 20px;
-}
-.qhusergitdetail{
-	padding: 20px;
-}
-.qhshowcount{
-	color:darkcyan;
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 1;
-}
-.qhname{
-  color: #000;
-  font-weight: normal;
-  font-size: 26px;
-}
-
-.qhlogin{
-	color: #666;
-	font-size: 20px;
-	font-style: normal;
-	font-weight: 300;
-}
-
-.qhRepositoriesList {
-  width: 650px;
-}
-
-
-.mdl-list__item--three-line .mdl-list__item-primary-content .qhavatar{
-	float:left;
+.neenuDiv{
+	display: none;
 }
