@@ -8,30 +8,33 @@ angular.module('QuickHub', [])
 		{"id": 3, "name": "Trending"},
 		{"id": 4, "name": "Pinned"}
 	];
+	
+	$scope.trendingRepoInfo = [];
+	$scope.languages = [];
 	$scope.currentDiv = 0;
 	$scope.handleDiv0 = true;
 	
 	
 	function qhSetCurrentDiv(divId){
-		console.log("in");
-		angular.element('#d'+$scope.currentDiv).addClass("neenuDiv");//add
-		angular.element('#d'+divId).removeClass("neenuDiv");//remove
+		angular.element('#d'+$scope.currentDiv).addClass("toggleDiv");//add
+		angular.element('#d'+divId).removeClass("toggleDiv");//remove
 		$scope.currentDiv = divId;
 	}
 	
 	function qhsetUserInfo(){
 			$scope.qhUsername = "";
 			$scope.handleDiv0 = false;
+		angular.element('#d'+divId).removeClass("toggleDiv");
 			qhLoadRepos();
 	}
 	function setDefaultDiv(){
 		$scope.handleDiv0 = true;
 	}
+	
 	function qhLoadRepos(){
 		$http.get($scope.userData.data.repos_url)
                 .then(function (data) {
                     $scope.repoData = data.data;
-					console.log($scope.repoData);
                 }, function(){
 			console.log("Repo data Not Found !");
 		});
@@ -48,7 +51,21 @@ angular.module('QuickHub', [])
 		});
 	}
 	
+	function qhGetTrending(){
+		 $http.get('/trending')
+        .success(function(data) {
+			 $scope.trending = data;
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        });
+	}
+	
+	
+	
+	
 	$scope.qhGetUserInfo = qhGetUserInfo;
 	$scope.qhSetCurrentDiv = qhSetCurrentDiv;
 	$scope.setDefaultDiv = setDefaultDiv;
+	$scope.qhGetTrending = qhGetTrending;
 }]);

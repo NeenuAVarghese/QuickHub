@@ -1,0 +1,24 @@
+{
+  "name": "quickhub",
+  "version": "1.0.0",
+  "description": "Project created as part of the Graduate Project - CPSC 473",
+  "main": "./server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeenuAVarghese/QuickHub.git"
+  },
+  "author": "NeenuAnnVarghese",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NeenuAVarghese/QuickHub/issues"
+  },
+  "homepage": "https://github.com/NeenuAVarghese/QuickHub#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "github-trend": "0.0.6",
+    "github-trend-crawler": "0.0.1"
+  }
+}
