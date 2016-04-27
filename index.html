@@ -74,7 +74,6 @@
         </div>
         <div class="col-lg-8">
         <div id="d0">
-        <div ng-show="handleDiv0">
         <h1>QuickHub</h1>
         <!-- Author -->
         <p class="lead">
@@ -102,7 +101,60 @@
         </div>
         <hr>
         </div>
-        <div id="d5" class="toggleDiv" ng-hide="handleDiv0">
+        <div class="toggleDiv" id="d1">
+        <h1>Repositories</h1>
+        <ul class="list-group qhRepositoriesList">
+        <li ng-repeat="repo in repoData" class="list-group-item">
+        <span class="badge">{{repo.stargazers_count}}</span>
+        <a href="{{repo.html_url}}"><h4 class="list-group-item-heading">{{repo.name}}</h4></a>
+        <p class="list-group-item-text">{{repo.updated_at | date:'medium'}}</p>
+        </span>
+        </li>
+        </ul>
+        </div>
+        <div class="toggleDiv" id="d2">
+        <h1>Contributions</h1>
+			<div class="row">
+				<div class="col-xs-12 col-sm-3">
+					<ul>
+				<li ng-repeat="lang in languages">
+					<button ng-click=qhChange(lang.id)>{{lang.id}}</button>
+					<ul>
+					<li ng-repeat="(key, value) in lang.langData">
+					<p>{{key}}</p>
+					<p>{{value}}</p>	
+					</li>
+					</ul>
+					
+				</li>
+			</ul>
+				</div>
+				<div class="col-xs-12 col-sm-9">
+				<div id="chartDiv">
+			<qh-Langviz data='myData'></qh-Langviz>
+			</div>
+				</div>
+			</div>
+			
+			
+			
+        </div>
+		
+        <div class="toggleDiv" id="d3">
+        <h1>Trending</h1>
+        <ul class="list-group qhTrendingRepositoriesList">
+        <li ng-repeat="trend in trending" class="list-group-item">
+        <a href="{{trend.repoUrl}}"><h4>{{trend.repoOwner}}/{{trend.repoName}}</h4></a>
+        <p>{{trend.repoDescription}}</p>
+        <p>{{trend.repLanguage}}</p>
+        </li>
+        </ul>
+        </div>
+        <div class="toggleDiv" id="d4">
+        <h1>Pinned</h1></div>
+			
+			
+			<div id="d5" class="toggleDiv" ng-hide="handleDiv0">
         <div class="row">
         <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
@@ -131,34 +183,9 @@
         </div>
         </div>
         </div>
-        </div>
-        <div class="toggleDiv" id="d1">
-        <h1>Repositories</h1>
-        <ul class="list-group qhRepositoriesList">
-        <li ng-repeat="repo in repoData" class="list-group-item">
-        <span class="badge">{{repo.stargazers_count}}</span>
-        <a href="{{repo.html_url}}"><h4 class="list-group-item-heading">{{repo.name}}</h4></a>
-        <p class="list-group-item-text">{{repo.updated_at | date:'medium'}}</p>
-        </span>
-        </li>
-        </ul>
-        </div>
-        <div class="toggleDiv" id="d2">
-        <h1>Contributions</h1>
-        </div>
-        <div class="toggleDiv" id="d3">
-        <h1 ng-click="qhGetTrending()">Trending</h1>
-        <ul class="list-group qhTrendingRepositoriesList">
-        <li ng-repeat="trend in trending" class="list-group-item">
-        <a href="{{trend.repoUrl}}"><h4>{{trend.repLogin}}/{{trend.repoName}}</h4></a>
-        <p>{{trend.repoDescription}}</p>
-        <p>{{trend.repLanguage}}</p>
-        </li>
-        </ul>
-        </div>
-        <div class="toggleDiv" id="d4">
-        <h1>Pinned</h1></div>
-        </div>
+			
+			
+        
         <hr>
         <!-- Footer -->
         <footer>
@@ -171,10 +198,12 @@
         </footer>
         </div>
         <!-- /.container -->
-        <!-- jQuery -->
-        <script src="libraries/jquery-1.12.3.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-        <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+	<script src="libraries/jquery-1.12.3.min.js"></script>
+	      
+        <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+		<script type='text/javascript' src="libraries/d3.min.js"></script>  
+		<script type='text/javascript' src='libraries/angular-charts-0.2.6/dist/angular-charts.min.js'></script>
+		  <script type='text/javascript' src="libraries/bootstrap/js/bootstrap.min.js"></script>
         <script src="scripts/quickhub-app.js"></script>
     </body>
 </html>
