@@ -135,12 +135,14 @@
 		<div class="toggleDiv" id="d2">
 				<h1>Contributions</h1>
 				<div class="row">
-					<div class="col-xs-12 col-sm-3">
+					<div class="col-xs-12 col-sm-4">
 						<ul class="nav nav-pills nav-stacked">
-  <li ng-click=qhChange(lang.id) ng-repeat="lang in languages">{{lang.id}}</li>
+  <li ng-repeat="lang in languages" ng-click=qhChange(lang.id) >
+	  <a href=""><span class="glyphicon glyphicon-share-alt">{{lang.id}}</span></a> 
+							</li>
 </ul>
 					</div>
-					<div class="col-xs-12 col-sm-9">
+					<div class="col-xs-12 col-sm-7 col-sm-offset-1">
 						<div id="chartDiv">
 							<qh-Langviz data='myData'></qh-Langviz>
 						</div>
