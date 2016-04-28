@@ -21,8 +21,6 @@
 
 var express = require("express");
 var Trending = require("github-trend");
-var request = require("request");
-var https = require("https");
 var scraper = new Trending.Scraper();
 
 var app = express();
