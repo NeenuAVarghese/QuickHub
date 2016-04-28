@@ -34,11 +34,15 @@ app.get('/trending', function(req, res) {
     scraper.scrapeTrendingRepos("").then(function(repos) {
         for (var i = 0; i < 5; i++) {
             var repo = repos[i];
+			app.get("https://api.github.com/repos/"+ repo.owner+"/"+repo.name,
+				 function(data, status){
+				console.log("got !!");
+				console.log(status);
+				 console.log(data);
+			});
             qhTrends.push({
                 repoName: repo.name,
-                repoUrl: repo.html_url,
-                repoOwner: repo.owner,
-                repoDescription: repo.description
+                repoOwner: repo.owner
             });
         }
         res.json(qhTrends);
