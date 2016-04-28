@@ -12,6 +12,7 @@ var app = angular.module('QuickHub', [])
 	$scope.trendingRepoInfo = [];
 	$scope.languages = [];
 	$scope.currentDiv = 0;
+	$scope.qhinvalidusername = true;
 	
 	$scope.qhconfig = {
     title: 'Products',
@@ -73,9 +74,13 @@ var app = angular.module('QuickHub', [])
         .then(function(data) {
 			$scope.userData = data;
 			$scope.username = username;
+			$scope.qhUsername = "";
+			$scope.qhinvalidusername = true;
             qhsetUserInfo();	
         },function(){
-			$scope.qhUsername = "";
+			$scope.qhinvalidusername = false;
+			angular.element('#d'+$scope.currentDiv).addClass("toggleDiv");//add
+			angular.element('#d0').removeClass("toggleDiv");//remove
 		});
 	}
 	
@@ -90,12 +95,17 @@ var app = angular.module('QuickHub', [])
         });
 	}
 	
+	function qhGetOrgInfo(orgname){
+		
+	}
+	
 	
 	qhGetTrending();
 	$scope.qhGetUserInfo = qhGetUserInfo;
 	$scope.qhSetCurrentDiv = qhSetCurrentDiv;
 	$scope.setDefaultDiv = setDefaultDiv;
 	$scope.qhGetTrending = qhGetTrending;
+	$scope.qhGetOrgInfo = qhGetOrgInfo;
 	
 }]);
 
