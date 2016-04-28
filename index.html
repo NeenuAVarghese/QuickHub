@@ -136,18 +136,9 @@
 				<h1>Contributions</h1>
 				<div class="row">
 					<div class="col-xs-12 col-sm-3">
-						<ul>
-							<li ng-repeat="lang in languages">
-								<button ng-click=qhChange(lang.id)>{{lang.id}}</button>
-								<ul>
-									<li ng-repeat="(key, value) in lang.langData">
-										<p>{{key}}</p>
-										<p>{{value}}</p>
-									</li>
-								</ul>
-
-							</li>
-						</ul>
+						<ul class="nav nav-pills nav-stacked">
+  <li ng-click=qhChange(lang.id) ng-repeat="lang in languages">{{lang.id}}</li>
+</ul>
 					</div>
 					<div class="col-xs-12 col-sm-9">
 						<div id="chartDiv">
@@ -161,13 +152,18 @@
 			</div>
 		<div class="toggleDiv" id="d3">
 				<h1>Trending</h1>
-				<ul class="list-group qhTrendingRepositoriesList">
-					<li ng-repeat="trend in trending" class="list-group-item">
-						<a href="{{trend.repoUrl}}"><h4>{{trend.repoOwner}}/{{trend.repoName}}</h4></a>
-						<p>{{trend.repoDescription}}</p>
-						<p>{{trend.repLanguage}}</p>
-					</li>
-				</ul>
+			
+			
+			<div ng-repeat="trend in trending" class="panel panel-default panelshadow">
+  <div class="panel-heading trendclass">
+	  <a href="{{trend.repoownerUrl}}"><span class="label label-success">{{trend.repoOwner}}</span></a> / <a href="{{trend.repoUrl}}">{{trend.repoName}}</a> 
+	  </div>
+</div>
+			
+			
+			
+			
+			
 			</div>
 		<div class="toggleDiv" id="d4">
 				<h1>Pinned</h1></div>
@@ -200,8 +196,8 @@
   <!-- Default panel contents -->
   <div class="panel-heading"><span class="glyphicon glyphicon-eye-open"></span></div>
   <div class="panel-body">
-	  <div class="well"><span class="label label-success">Followers </span><span class="badge">{{userData.data.followers}}</span></div>
-	  <div class="well"><span class="label label-info">Following </span><span class="badge">{{userData.data.following}}</span></div>
+	  <h4><span class="label label-success">Followers </span><span class="badge">{{userData.data.followers}}</span></h4>
+	  <h4><span class="label label-info">Following </span><span class="badge">{{userData.data.following}}</span></h4>
 							</div>
 						</div>
 					</div>
@@ -210,8 +206,8 @@
   <!-- Default panel contents -->
   <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span></div>
   <div class="panel-body">
-    <div class="well"><span class="label label-primary">Public Repositories </span><span class="badge">{{userData.data.public_repos}}</span></div>
-	  <div class="well"><span class="label label-warning">Public Gists </span><span class="badge">{{userData.data.public_gists}}</span></div>
+   <h4><span class="label label-primary">Public Repositories </span><span class="badge">{{userData.data.public_repos}}</span></h4>
+	  <h4><span class="label label-warning">Public Gists </span><span class="badge">{{userData.data.public_gists}}</span></h4>
 							</div>
 						</div>
 					</div>
