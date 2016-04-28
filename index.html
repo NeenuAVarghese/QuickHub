@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="QuickHub">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Blog Post - Start Bootstrap Template</title>
-        <!-- Bootstrap Core CSS -->
-        <link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="css/main.css" rel="stylesheet">
-    </head>
-    <body ng-controller="gitHubDataController">
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <h4><a class="navbar-brand" href="#">Start Bootstrap</a></h4>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="https://github.com/NeenuAVarghese/QuickHub">
-                                <span class="glyphicon glyphicon-plane">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Blog Post - Start Bootstrap Template</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
+	<link href="css/main.css" rel="stylesheet">
+</head>
+
+<body ng-controller="gitHubDataController">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<h4><a class="navbar-brand" href="#">Start Bootstrap</a></h4>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="https://github.com/NeenuAVarghese/QuickHub">
+							<span class="glyphicon glyphicon-plane">
                                     GitHub
                             </a>
                         </li>
@@ -42,168 +44,202 @@
             <!-- /.container -->
         </nav>
         <!-- Page Content -->
-        <div class="container">
-        <div class="row">
+    <div class="container">
+    <div class="row">
         <!-- Blog Sidebar Widgets Column -->
         <div class="col-md-4">
         <!-- Blog Search Well -->
         <div class="well qhSearch">
-        <h4>Search GitHub</h4>
         <div class="input-group">
-        <input type="text" class="form-control" ng-click="setDefaultDiv" ng-model="qhUsername">
+        <input type="text" class="form-control" ng-click="setDefaultDiv" ng-model="qhUsername" placeholder="GitHub Username">
         <span class="input-group-btn">
         <button class="btn btn-default" type="button" ng-click="qhGetUserInfo(qhUsername)">
         <span class="glyphicon glyphicon-search"></span>
-        </button>
-        </span>
-        </div>
-        </div>
-        <!-- Blog Categories Well -->
-        <div class="well verticalNavbar">
-        <h4>Blog Categories</h4>
-        <div class="row">
-        <div class="col-lg-6">
-        <ul class="nav nav-pills nav-stacked">
-        <li ng-repeat="functionality in functionalities" ng-click="qhSetCurrentDiv(functionality.id)">
-        <a id={{functionality.id}} href="#">{{functionality.name}}</a>
-        </li>                        
-        </ul>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-8">
-        <div id="d0">
-        <h1>QuickHub</h1>
-        <!-- Author -->
-        <p class="lead">
-        by <a href="#">Neenu Ann Varghese</a>
-        </p>
-        <hr>
-        <!-- Preview Image -->
-        <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-        <hr>
-        <!-- Post Content -->
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
-        <hr>
-        <div class="well">
-        <h4>Leave a Comment:</h4>
-        <form role="form">
-        <div class="form-group">
-        <textarea class="form-control" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        </div>
-        <hr>
-        </div>
-        <div class="toggleDiv" id="d1">
-        <h1>Repositories</h1>
-        <ul class="list-group qhRepositoriesList">
-        <li ng-repeat="repo in repoData" class="list-group-item">
-        <span class="badge">{{repo.stargazers_count}}</span>
-        <a href="{{repo.html_url}}"><h4 class="list-group-item-heading">{{repo.name}}</h4></a>
-        <p class="list-group-item-text">{{repo.updated_at | date:'medium'}}</p>
-        </span>
-        </li>
-        </ul>
-        </div>
-        <div class="toggleDiv" id="d2">
-        <h1>Contributions</h1>
+		</button>
+		</span>
+			</div>
+		</div>
+		<div ng-hide="qhinvalidusername" class="alert alert-danger" role="alert">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			<span class="sr-only">Error:</span> Enter a valid GitHub Username
+		</div>
+		<div class="well qhSearch">
+        <div class="input-group">
+        <input type="text" class="form-control" ng-click="setDefaultDiv" ng-model="qhOrgname" placeholder="GitHub Organization Name">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="qhGetOrgInfo(qhOrgname)">
+        <span class="glyphicon glyphicon-search"></span>
+		</button>
+		</span>
+			</div>
+		</div>
+		<div class="well verticalNavbar">
+			<h4>Blog Categories</h4>
 			<div class="row">
-				<div class="col-xs-12 col-sm-3">
-					<ul>
-				<li ng-repeat="lang in languages">
-					<button ng-click=qhChange(lang.id)>{{lang.id}}</button>
-					<ul>
-					<li ng-repeat="(key, value) in lang.langData">
-					<p>{{key}}</p>
-					<p>{{value}}</p>	
-					</li>
+				<div class="col-lg-6">
+					<ul class="nav nav-pills nav-stacked">
+						<li ng-repeat="functionality in functionalities" ng-click="qhSetCurrentDiv(functionality.id)">
+							<a id={{functionality.id}} href="#">{{functionality.name}}</a>
+						</li>
 					</ul>
-					
-				</li>
-			</ul>
-				</div>
-				<div class="col-xs-12 col-sm-9">
-				<div id="chartDiv">
-			<qh-Langviz data='myData'></qh-Langviz>
-			</div>
 				</div>
 			</div>
+		</div>
+		</div>
+		<div class="col-md-8">
+			<div id="d0">
+				<h1>QuickHub</h1>
+				<!-- Author -->
+				<p class="lead">
+					by <a href="#">Neenu Ann Varghese</a>
+				</p>
+				<hr>
+				<!-- Preview Image -->
+				<img class="img-responsive" src="http://placehold.it/900x300" alt="">
+				<hr>
+				<!-- Post Content -->
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+				<hr>
+				<div class="well">
+					<h4>Leave a Comment:</h4>
+					<form role="form">
+						<div class="form-group">
+							<textarea class="form-control" rows="3"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+				<hr>
+			</div>
+			<div class="toggleDiv" id="d1">
+				<h1>Repositories</h1>
+				
+				<div ng-repeat="repo in repoData" class="panel panel-default panelshadow">
+  <div class="panel-heading"><a href="{{repo.html_url}}"><h4 class="list-group-item-heading">{{repo.name}}</h4></a><p class="list-group-item-text">{{repo.updated_at | date:'medium'}}</p></div>
+  <div class="panel-body">
+    <div class="row">
+							&nbsp;<span class="label label-primary">Stars: {{repo.stargazers_count}}</span>&nbsp;
+							<span class="label label-success" type="button">Issues: {{repo.open_issues_count}}</span>&nbsp;
+							<span class="label label-danger">Language: {{repo.language}}</span>&nbsp;
+				<span class="label label-warning">Forks: {{repo.forks}}</span>&nbsp;
+						</div>
+  </div>
+</div>
+			</div>
+
 			
-			
-			
-        </div>
-		
-        <div class="toggleDiv" id="d3">
-        <h1>Trending</h1>
-        <ul class="list-group qhTrendingRepositoriesList">
-        <li ng-repeat="trend in trending" class="list-group-item">
-        <a href="{{trend.repoUrl}}"><h4>{{trend.repoOwner}}/{{trend.repoName}}</h4></a>
-        <p>{{trend.repoDescription}}</p>
-        <p>{{trend.repLanguage}}</p>
-        </li>
-        </ul>
-        </div>
-        <div class="toggleDiv" id="d4">
-        <h1>Pinned</h1></div>
-			
-			
-			<div id="d5" class="toggleDiv" ng-hide="handleDiv0">
-        <div class="row">
-        <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-        <img data-ng-src="{{userData.data.avatar_url}}" alt="userimage">
-        </div>
-        </div>
-        <div class="col-sm-6 col-md-8 caption">
-        <div class="qhusernamedetails">
-        <h2>{{userData.data.name}}</h2>
-        <p>{{userData.data.login}}</p>
-        </div>
-        <hr>
-        <div class="qhuserlocationdetail">
-        <div><h5><span class="glyphicon glyphicon-map-marker"></span>{{userData.data.location}}</h5></div>
-        <div><h5><span class="glyphicon glyphicon-time"></span>Joined On {{userData.data.created_at | date:'medium'}}</h5></div>
-        </div>
-        <hr>
-        <div class="row qhusergitdetail">
-        <div class="col-sm-6"><h4>{{userData.data.followers}}</h4></div>
-        <div class="col-sm-6"><h4>{{userData.data.following}}</h4></div>
-        </div>
-        <div class="row qhusergitdetail">
-        <div class="col-sm-6"><h4>Followers</h4></div>
-        <div class="col-sm-6"><h4>Following</h4></div>
-        </div>
-        </div>
-        </div>
-        </div>
-			
-			
-        
-        <hr>
-        <!-- Footer -->
-        <footer>
-        <div class="row">
-        <div class="col-lg-12">
-        <p>Copyright &copy; Your Website 2014</p>
-        </div>
-        </div>
-        <!-- /.row -->
-        </footer>
-        </div>
-        <!-- /.container -->
-	<script src="libraries/jquery-1.12.3.min.js"></script>
-	      
-        <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-		<script type='text/javascript' src="libraries/d3.min.js"></script>  
+		<div class="toggleDiv" id="d2">
+				<h1>Contributions</h1>
+				<div class="row">
+					<div class="col-xs-12 col-sm-3">
+						<ul>
+							<li ng-repeat="lang in languages">
+								<button ng-click=qhChange(lang.id)>{{lang.id}}</button>
+								<ul>
+									<li ng-repeat="(key, value) in lang.langData">
+										<p>{{key}}</p>
+										<p>{{value}}</p>
+									</li>
+								</ul>
+
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<div id="chartDiv">
+							<qh-Langviz data='myData'></qh-Langviz>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		<div class="toggleDiv" id="d3">
+				<h1>Trending</h1>
+				<ul class="list-group qhTrendingRepositoriesList">
+					<li ng-repeat="trend in trending" class="list-group-item">
+						<a href="{{trend.repoUrl}}"><h4>{{trend.repoOwner}}/{{trend.repoName}}</h4></a>
+						<p>{{trend.repoDescription}}</p>
+						<p>{{trend.repLanguage}}</p>
+					</li>
+				</ul>
+			</div>
+		<div class="toggleDiv" id="d4">
+				<h1>Pinned</h1></div>
+
+		<div id="d5" class="toggleDiv" ng-hide="handleDiv0">
+				<div class="row">
+					<div class="col-xs-6 col-md-5">
+						<div class="thumbnail panelshadow">
+							<img data-ng-src="{{userData.data.avatar_url}}" alt="userimage">
+						</div>
+					</div>
+					<div class="col-xs-6 col-md-7">
+						<div class="qhusernamedetails">
+							<h2>{{userData.data.name}}</h2>
+							<p>{{userData.data.login}}</p>
+						</div>
+						<hr>
+						<div class="qhuserlocationdetail">
+							<div>
+								<h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp;{{userData.data.location}}</h5></div>
+							<div>
+								<h5><span class="glyphicon glyphicon-time"></span>&nbsp;Joined On {{userData.data.created_at | date:'medium'}}</h5></div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-5">
+						<div class="panel panel-success panelshadow">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><span class="glyphicon glyphicon-eye-open"></span></div>
+  <div class="panel-body">
+	  <div class="well"><span class="label label-success">Followers </span><span class="badge">{{userData.data.followers}}</span></div>
+	  <div class="well"><span class="label label-info">Following </span><span class="badge">{{userData.data.following}}</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="panel panel-info panelshadow">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span></div>
+  <div class="panel-body">
+    <div class="well"><span class="label label-primary">Public Repositories </span><span class="badge">{{userData.data.public_repos}}</span></div>
+	  <div class="well"><span class="label label-warning">Public Gists </span><span class="badge">{{userData.data.public_gists}}</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</div>
+
+
+			<hr>
+			<!-- Footer -->
+			<footer>
+				<div class="row">
+					<div class="col-lg-12">
+						<p>Copyright &copy; Your Website 2014</p>
+					</div>
+				</div>
+				<!-- /.row -->
+			</footer>
+		</div>
+	</div>
+		<!-- /.container -->
+		<script src="libraries/jquery-1.12.3.min.js"></script>
+
+		<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+		<script type='text/javascript' src="libraries/d3.min.js"></script>
 		<script type='text/javascript' src='libraries/angular-charts-0.2.6/dist/angular-charts.min.js'></script>
-		  <script type='text/javascript' src="libraries/bootstrap/js/bootstrap.min.js"></script>
-        <script src="scripts/quickhub-app.js"></script>
-    </body>
+		<script type='text/javascript' src="libraries/bootstrap/js/bootstrap.min.js"></script>
+		<script src="scripts/quickhub-app.js"></script>
+</body>
+
 </html>
