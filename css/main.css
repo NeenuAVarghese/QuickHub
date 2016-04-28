@@ -35,6 +35,12 @@ footer {
 }
 
 
+.nav-pills > li > a > span{
+	color: #000000;
+	font-size: 15px;
+	font-weight: bold;
+}
+
 .nav-pills > li > a:focus {
   background-color: #2A7A72;
 }
