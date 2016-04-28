@@ -21,6 +21,8 @@
 
 var express = require("express");
 var Trending = require("github-trend");
+var request = require("request");
+var https = require("https");
 var scraper = new Trending.Scraper();
 
 var app = express();
@@ -34,15 +36,11 @@ app.get('/trending', function(req, res) {
     scraper.scrapeTrendingRepos("").then(function(repos) {
         for (var i = 0; i < 5; i++) {
             var repo = repos[i];
-			app.get("https://api.github.com/repos/"+ repo.owner+"/"+repo.name,
-				 function(data, status){
-				console.log("got !!");
-				console.log(status);
-				 console.log(data);
-			});
-            qhTrends.push({
+				 qhTrends.push({
                 repoName: repo.name,
-                repoOwner: repo.owner
+                repoOwner: repo.owner,
+				repoUrl : "https://github.com/"+repo.owner+"/"+repo.name,
+				repoownerUrl: "https://github.com/"+repo.owner
             });
         }
         res.json(qhTrends);
