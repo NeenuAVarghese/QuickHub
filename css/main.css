@@ -1,81 +1,96 @@
-body {
-    padding-top: 120px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-}
+	body {
+	    padding-top: 120px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+	}
 
-footer {
-    margin: 50px 0;
-}
+	footer {
+	    margin: 50px 0;
+	}
 
-.toggleDiv{
-	display: none;
-}
+	input .form-control :focus { 
+	    border-color: red;
+	}
+	.toggleDiv{
+		display: none;
+	}
 
-.navbar-fixed-top{
-	padding: 25px 0px 25px 0px;
-}
+	.navbar-fixed-top{
+		padding: 25px 0px 25px 0px;
+	}
 
-.navbar-inverse{
-	background: #0F536B;
-}
+	.navbar-inverse{
+		background: #0F536B;
+	}
 
-.verticalNavbar{
-	background: #0F536B;
-}
+	.verticalNavbar{
+		background: #0F536B;
+	}
 
-.verticalNavbar h4,
-.qhSearch h4{
-	color: #FFFFFF;
-	font-weight:bolder;
-}
+	.verticalNavbar h4,
+	.qhSearch h4{
+		color: #FFFFFF;
+		font-weight:bolder;
+	}
 
-.nav-pills > li > a{
-	color: #FFFFFF;
-	font-size: 20px;
-	font-weight: bold;
-}
+	.nav-pills > li > a{
+		color: #FFFFFF;
+		font-size: 18px;
+		font-weight: bold;
+		padding: 5px;
+	}
 
 
-.nav-pills > li > a > span{
-	color: #000000;
-	font-size: 15px;
-	font-weight: bold;
-}
+	.nav-pills > li > a > span{
+		color: #000000;
+		font-size: 15px;
+		font-weight: bold;
+	}
 
-.nav-pills > li > a:focus {
-  background-color: #2A7A72;
-}
+	.nav-pills > li > a:focus {
+	  background-color: #2A7A72;
+	}
 
-.nav-pills > li > a:hover {
-  background: #0A9184;
-	color: #E0F21B;
-}
+	.nav-pills > li > a:hover {
+	  background: #0A9184;
+		color: #E0F21B;
+	}
 
-.qhSearch{
-	background-color: #14C4B3;
-}
+	.qhSearch{
+		background-color: #14C4B3;
+	}
 
-.navbar-inverse .navbar-brand {
-	color: #FFFFFF;
-	font-size: 2em;
-}
-.navbar-inverse .navbar-brand:hover{
-	color: #14C4B3;
-}
+	.navbar-inverse .navbar-brand {
+		color: #FFFFFF;
+		font-size: 2em;
+	}
+	.navbar-inverse .navbar-brand:hover{
+		color: #14C4B3;
+	}
 
-.navbar-inverse .navbar-nav > li > a{
-	color:#FFFFFF;
-	font-weight: bold;
-}
-.lead a{
-	color: #E0F21B;
-}
+	.navbar-inverse .navbar-nav > li > a{
+		color:#FFFFFF;
+		font-weight: bold;
+	}
+	.lead a{
+		color: #E0F21B;
+	}
 
-.panelshadow{
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+	.panelshadow{
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
 
-.trendclass{
-	font-size: 20px;
-}
+	.trendclass{
+		font-size: 20px;
+	}
+
+	.navbar-right{
+		color: #FFFFFF;
+		font-size: 1.5em;
+	}
+
+	.nav-pills > li > a > span.glyph-white{
+		color: #fff;
+		font-size: 10px;
+	}
+
 
 
