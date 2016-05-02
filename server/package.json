@@ -18,6 +18,10 @@
   "homepage": "https://github.com/NeenuAVarghese/QuickHub#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "github-trend": "0.0.6"
+    "github-trend": "0.0.6",
+    "github-trend-crawler": "0.0.1",
+    "http": "0.0.0",
+    "mongoose": "^4.4.14",
+    "request": "^2.72.0"
   }
 }
