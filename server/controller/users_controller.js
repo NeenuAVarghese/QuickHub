@@ -22,9 +22,13 @@ UsersController.login = function(req, res) {
                 console.log("201");
                 res.sendStatus(201);
             } else {
-                console.log(result);
-                console.log(result.password);
-                res.sendStatus(200);
+
+                if(result.password === req.params.password){
+                    res.sendStatus(200);
+                }
+                else{
+                    res.sendStatus(201);
+                }
             }
         }
     });
@@ -65,7 +69,66 @@ UsersController.signup = function(req, res) {
 
 UsersController.addtopins = function(req, res){
 
+     User.findOne({
+        name: req.params.user
+    }, function(err, result) {
+        if (err !== null) {
+            console.log(err);
+            res.send(err);
+        } else {
+            if (result == null) {
+                console.log("201");
+                res.sendStatus(201);
+            } 
+            else {
+               
+                User.update({name: req.params.user}, 
+                    {
+                        $addToSet : {"itemsPinned" : {"usernme": req.params.login, "url": "https://www.github.com/"+req.params.login}}
+                    },
+                    function(err){
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        console.log("Value entered");
+                    }
+                });
+            }
+        }
+    });
+
 };
+
+
+
+UsersController.getpins = function(req, res){
+console.log("In fun");
+    User.findOne({
+        name: req.params.user
+    }, function(err, result) {
+        if (err !== null) {
+            console.log(err);
+            res.send(err);
+        } else {
+            if (result == null) {
+                console.log("201");
+                res.sendStatus(201);
+            } else {
+                if(result.itemsPinned === ""){
+                    res.sendStatus(201);
+                }
+                else{
+                    res.json(result.itemsPinned);
+                }
+            }
+        }
+    });   
+};
+
+
+
+
 
 
 module.exports = UsersController;

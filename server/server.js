@@ -59,8 +59,13 @@
         UsersController.signup(req, res);
     });
 
-    app.get('/addtopins/:url/:login/:user', function(req, res){
+    app.get('/addtopins/:login/:user', function(req, res){
         UsersController.addtopins(req, res);
+    });
+
+    app.get("/pinned/:user", function(req, res){
+        console.log("in server");
+        UsersController.getpins(req, res);
     });
 
 
