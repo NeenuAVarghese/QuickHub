@@ -141,7 +141,7 @@
 	                	}
 	                	else{
 	                		$scope.userpins = data;
-	                		console.log($scope.userpins);
+	                		angular.element("#alertLogin").addClass("toggleDiv");
 	                	}
 	                })
 	                .error(function(err){
