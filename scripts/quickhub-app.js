@@ -7,8 +7,10 @@
 	        iflogged: false
 	    });
 	    console.log($localStorage);
+
 	    $scope.userlgdin = $localStorage.user;
 	    $scope.logincntrl = $localStorage.iflogged;
+
 	    $scope.functionalities = [{
 	        "id": 0,
 	        "name": "Home",
@@ -131,6 +133,21 @@
 	                    $localStorage.iflogged = true;
 	                    $scope.userlgdin = $localStorage.user;
 	                    $scope.logincntrl = true;
+
+	                    $http.get("/pinned/"+$scope.userlgdin)
+	                .success(function(data, status){
+	                	if(status === 201){
+	                		//value is empty
+	                	}
+	                	else{
+	                		$scope.userpins = data;
+	                		console.log($scope.userpins);
+	                	}
+	                })
+	                .error(function(err){
+	                	console.log("Error Retrieving Data");
+	                })
+	                
 	                } else if (status === 201) {
 	                    angular.element("#loginfooter").removeClass("toggleDiv");
 	                    $scope.alertmsg = "Error: Error in Username or password";
@@ -169,26 +186,52 @@
 	    	 $scope.logincntrl = false;
 	    	 $scope.userlgdin = "";
 	    	 $localStorage.$reset({
-				    name: "",
+				    user: "",
 				    iflogged : false
 				});
+	    	angular.element("#d1").addClass("toggleDiv");
+	    	angular.element("#d2").addClass("toggleDiv");
+	    	angular.element("#d3").addClass("toggleDiv");
+	    	angular.element("#d4").addClass("toggleDiv");
+	    	angular.element("#d5").addClass("toggleDiv");
+	    	angular.element("#d0").removeClass("toggleDiv");
+
 	    }
 
 
 	    function addtopins(){
-	    	console.log("out");
-	    	if($localStorage.name === ""){
-	    		console.log("in");
+	    	if($localStorage.user === ""){
 	    		angular.element("#alertLogin").removeClass("toggleDiv");
+	    		angular.element("#alertpinned").removeClass("toggleDiv");
 	    	}
 	    	else{
 	    		angular.element("#alertLogin").addClass("toggleDiv");
-	    		$http.get("/addtopins/"+$scope.userData.data.html_url+"/"+$scope.userData.data.login+"/"+$scope.userlgdin)
+	    		$http.get("/addtopins/"+$scope.userData.data.login+"/"+$scope.userlgdin)
 	    		.success(function(data, status){
-
+	    			angular.element("#alertpinned").removeClass("toggleDiv");
+	    			$scope.userpins = data;
+	    			console.log($scope.userpins);
 	    		})
-	    		.error(function(data, status){
+	    		.error(function(err, status){
+	    			console.log(err);
+	    		})
+	    	}
+	    }
 
+	    function getpins(){
+	    	if($localStorage.user === ""){
+	    		//do nothing
+	    	}
+	    	else{
+	    		
+	    		$http.get("/addtopins/"+$scope.userData.data.login+"/"+$scope.userlgdin)
+	    		.success(function(data, status){
+	    			angular.element("#alertpinned").removeClass("toggleDiv");
+	    			$scope.userpins = data;
+	    			
+	    		})
+	    		.error(function(err, status){
+	    			console.log(err);
 	    		})
 	    	}
 	    }
@@ -196,6 +239,7 @@
 
 
 	    qhGetTrending();
+
 	    $scope.qhGetUserInfo = qhGetUserInfo;
 	    $scope.qhSetCurrentDiv = qhSetCurrentDiv;
 	    $scope.setDefaultDiv = setDefaultDiv;
