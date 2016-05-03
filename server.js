@@ -23,7 +23,7 @@
     var scraper = new Trending.Scraper();
     var mongoose = require("mongoose");
     var http = require("http");
-    var UsersController = require("./controller/users_controller.js");
+    var UsersController = require("./server/controller/users_controller.js");
 
     var app = express();
     app.use(express.static("./"));
