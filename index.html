@@ -175,6 +175,9 @@
 
                 <div class="toggleDiv" id="d4">
                     <h1>Pinned</h1>
+                    <ul ng-repeat="pin in userpins track by pin.usernme">
+                        <li><a href="{{pin.url}}">{{pin.usernme}}</a></li>
+                    </ul>
                 </div>
 
                 <div id="d5" class="toggleDiv" ng-hide="handleDiv0">
@@ -217,6 +220,10 @@
                             	<span class="glyphicon glyphicon-plus"></span> Sign Up
                         	</button>
                     	</p> 
+                    </div>
+                    <div id="alertpinned" class="alert alert-info alert-dismissible fade in toggleDiv" role=alert> 
+                        <button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button> 
+                        <h4>User Information Pinned to your database...</h4> 
                     </div>
                     <div class="row">
                         <div class="col-sm-5">
