@@ -7,349 +7,383 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog Post - Start Bootstrap Template</title>
+    <title>QuickHub</title>
     <!-- Bootstrap Core CSS -->
     <link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FOnt -->
+    <link href='https://fonts.googleapis.com/css?family=Amaranth:700' rel='stylesheet' type='text/css'>
     <!-- Custom CSS -->
     <link href="css/main.css" rel="stylesheet">
 
 </head>
 
 <body ng-controller="gitHubDataController">
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <h4><a class="navbar-brand" href="#">Start Bootstrap</a></h4>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li ng-hide="logincntrl" ng-cloak>
-                        <a class="btn" data-toggle="modal" data-target="#qhloginmodal">
-                            <span class="glyphicon glyphicon-log-in"></span> Login
-                        </a>
-                    </li>
-                    <li ng-show="logincntrl" ng-cloak ng-click="logoutcntrl()">
-                        <a class="btn">
-                            <span class="glyphicon glyphicon-log-out"></span> Logout
-                        </a>
-                    </li>
-                    <li ng-hide="logincntrl" ng-cloak>
-                        <a class="btn" data-toggle="modal" data-target="#qhsignupmodal">
-                            <span class="glyphicon glyphicon-plus"></span> Sign Up
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/NeenuAVarghese/QuickHub">
-                            <span class="glyphicon glyphicon-link"></span>GitHub
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" ng-cloak>
-                            <span class="glyphicon glyphicon-user"></span>{{userlgdin}}
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
-                <!-- Blog Search Well -->
-                <div class="well qhSearch">
-                    <div class="input-group">
-                        <input type="text" class="form-control" ng-click="setDefaultDiv" ng-model="qhUsername" placeholder="GitHub Username">
-                        <span class="input-group-btn">
-								<button class="btn btn-default" type="button" ng-click="qhGetUserInfo()">
-									<span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div>
+    <div class="wrap">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h4><a class="navbar-brand" href="#">Start Bootstrap</a></h4>
                 </div>
-                <div ng-hide="qhinvalidusername" class="alert alert-danger" role="alert" ng-cloak>
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only" ng-cloak>Error:</span> Enter a valid GitHub Username
-                </div>
-                <div class="well verticalNavbar">
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li ng-repeat="functionality in functionalities" ng-click="qhSetCurrentDiv(functionality.id)">
-                                    <a id={{functionality.id}} href="#"><span class={{functionality.glyphicon}} aria-hidden="true"></span>&nbsp;{{functionality.name}}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div id="d0">
-                    <h1>QuickHub</h1>
-                    <!-- Author -->
-                    <p class="lead">
-                        by <a href="#">Neenu Ann Varghese</a>
-                    </p>
-                    <hr>
-                    <!-- Preview Image -->
-                    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                    <hr>
-                    <!-- Post Content -->
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
-                    <hr>
-                    <div class="well">
-                        <h4>Leave a Comment:</h4>
-                        <form role="form">
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                    <hr>
-                </div>
-                <div class="toggleDiv" id="d1">
-                    <h1>Repositories</h1>
-
-                    <div ng-repeat="repo in repoData" class="panel panel-default panelshadow">
-                        <div class="panel-heading"><a href="{{repo.html_url}}"><h4 class="list-group-item-heading">{{repo.name}}</h4></a>
-                            <p class="list-group-item-text">{{repo.updated_at | date:'medium'}}</p>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                &nbsp;<span class="label label-primary">Stars: {{repo.stargazers_count}}</span>&nbsp;
-                                <span class="label label-success" type="button">Issues: {{repo.open_issues_count}}</span>&nbsp;
-                                <span class="label label-danger">Language: {{repo.language}}</span>&nbsp;
-                                <span class="label label-warning">Forks: {{repo.forks}}</span>&nbsp;
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="toggleDiv" id="d2">
-                    <h1>Contributions</h1>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li ng-repeat="lang in languages" ng-click=qhChange(lang.id)>
-                                    <a href=""><span class="glyphicon glyphicon-share-alt">{{lang.id}}</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-xs-12 col-sm-7 col-sm-offset-1">
-                            <div id="chartDiv">
-                                <qh-Langviz data='myData'></qh-Langviz>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="toggleDiv" id="d3">
-                    <h1>Trending</h1>
-
-                    <div ng-repeat="trend in trending" class="panel panel-default panelshadow">
-                        <div class="panel-heading trendclass">
-                            <a href="{{trend.repoownerUrl}}"><span class="label label-success">{{trend.repoOwner}}</span></a> / <a href="{{trend.repoUrl}}">{{trend.repoName}}</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="toggleDiv" id="d4">
-                    <h1>Pinned</h1>
-                    <ul ng-repeat="pin in userpins track by pin.usernme">
-                        <li><a href="{{pin.url}}">{{pin.usernme}}</a></li>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-hide="logincntrl" ng-cloak>
+                            <a class="btn" data-toggle="modal" data-target="#qhloginmodal">
+                                <span class="glyphicon glyphicon-log-in"></span> Login
+                            </a>
+                        </li>
+                        <li ng-show="logincntrl" ng-cloak ng-click="logoutcntrl()">
+                            <a class="btn">
+                                <span class="glyphicon glyphicon-log-out"></span> Logout
+                            </a>
+                        </li>
+                        <li ng-hide="logincntrl" ng-cloak>
+                            <a class="btn" data-toggle="modal" data-target="#qhsignupmodal">
+                                <span class="glyphicon glyphicon-plus"></span> Sign Up
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/NeenuAVarghese/QuickHub">
+                                <span class="glyphicon glyphicon-link"></span>GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" ng-cloak>
+                                <span class="glyphicon glyphicon-user"></span>{{userlgdin}}
+                            </a>
+                        </li>
                     </ul>
                 </div>
-
-                <div id="d5" class="toggleDiv" ng-hide="handleDiv0">
-                    <div class="row">
-                        <div class="col-xs-6 col-md-5">
-                            <div class="thumbnail panelshadow">
-                                <a href="{{userData.data.html_url}}">
-                                	<img data-ng-src="{{userData.data.avatar_url}}" alt="userimage">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xs-6 col-md-7">
-                            <div class="qhusernamedetails">
-                            	<a class="btn" ng-click="addtopins()" >
-                            		<span class="glyphicon glyphicon-king"></span>
-                            		<h2>{{userData.data.name}}</h2>
-                            	</a>
-                                
-                                <p>{{userData.data.login}}</p>
-                            </div>
-                            <hr>
-                            <div class="qhuserlocationdetail">
-                                <div>
-                                    <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp;{{userData.data.location}}</h5>
-                                </div>
-                                <div>
-                                    <h5><span class="glyphicon glyphicon-time"></span>&nbsp;Joined On {{userData.data.created_at | date:'medium'}}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div id="alertLogin" class="alert alert-danger alert-dismissible fade in toggleDiv" role=alert> 
-                    	<button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button> 
-                    	<h4>Kindly Login/Sign Up to continue....</h4> 
-                    	<p> <button class="btn" data-toggle="modal" data-target="#qhloginmodal">
-                            	<span class="glyphicon glyphicon-log-in"></span> Login
-                        	</button>
-                    		<button class="btn" data-toggle="modal" data-target="#qhsignupmodal">
-                            	<span class="glyphicon glyphicon-plus"></span> Sign Up
-                        	</button>
-                    	</p> 
-                    </div>
-                    <div id="alertpinned" class="alert alert-info alert-dismissible fade in toggleDiv" role=alert> 
-                        <button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button> 
-                        <h4>User Information Pinned to your database...</h4> 
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <div class="panel panel-success panelshadow">
-                                <!-- Default panel contents -->
-                                <div class="panel-heading"><span class="glyphicon glyphicon-eye-open"></span>
-                                Fan Club</div>
-                                <div class="panel-body">
-                                    <h4><span class="label label-success">Followers&nbsp;</span><span class="badge">{{userData.data.followers}}</span></h4>
-                                    <h4><span class="label label-info">Following&nbsp;</span><span class="badge">{{userData.data.following}}</span></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-7">
-                            <div class="panel panel-info panelshadow">
-                                <!-- Default panel contents -->
-                                <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>
-                                Count of Gists & Repos</div>
-                                <div class="panel-body">
-                                    <h4><span class="label label-primary">Public Repositories&nbsp;</span><span class="badge">{{userData.data.public_repos}}</span></h4>
-                                    <h4><span class="label label-warning">Public Gists&nbsp;</span><span class="badge">{{userData.data.public_gists}}</span></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- /.navbar-collapse -->
             </div>
+            <!-- /.container -->
+        </nav>
 
-            <hr>
-            <!-- Login Modal -->
-            <div id="qhloginmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button id="loginclose" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+
+        <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <!-- Blog Sidebar Widgets Column -->
+                <div class="col-md-4">
+                    <!-- Blog Search Well -->
+                    <div class="well qhSearch">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-click="setDefaultDiv" ng-model="qhUsername" placeholder="GitHub Username">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" ng-click="qhGetUserInfo()">
+                                    <span class="glyphicon glyphicon-search"></span>
                             </button>
-                            <h4 class="modal-title">Login</h4>
+                            </span>
                         </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label for="username" class="col-sm-2 control-label">Username</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" ng-model="qhusernamelgn" placeholder="Username">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="col-sm-2 control-label">Password</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" ng-model="qhpasswrdlgn" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-default" ng-click="userlogin()">Login in</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <div id="loginfooter" class="toggleDiv alert alert-warning" role="alert"><strong>{{alertmsg}}</strong>
+                    </div>
+                    <div ng-hide="qhinvalidusername" class="alert alert-danger" role="alert" ng-cloak>
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only" ng-cloak>Error:</span> Enter a valid GitHub Username
+                    </div>
+                    <div class="well verticalNavbar">
+                        <h4>Blog Categories</h4>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li ng-repeat="functionality in functionalities" ng-click="qhSetCurrentDiv(functionality.id)">
+                                        <a id={{functionality.id}} href="#"><span class={{functionality.glyphicon}} aria-hidden="true"></span>&nbsp;{{functionality.name}}</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <!-- /.modal-content -->
                 </div>
-                <!-- /.modal-dialog -->
-            </div>
 
-            <!-- Sign Up Modal -->
-            <div id="qhsignupmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button id="signupclose" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+
+                <div class="col-md-8">
+
+
+                    <!-- Shows Main Page -->
+                    <div id="d0">
+                        <h1>QuickHub</h1>
+                        <!-- Author -->
+                        <p class="lead">
+                            by <a href="#">Neenu Ann Varghese</a>
+                        </p>
+                        <hr>
+                        <!-- Preview Image -->
+                        <img class="img-responsive" src="/images/mainpage.png" alt="">
+                        <hr>
+                        <!-- Post Content -->
+                        <p class="lead">GitHub is a web-based Git repository hosting service. It offers distributed revision control and source code management functionality of Git as well as adding ts own features. </p>
+
+                        <div class="well qhmainwell">
+                            <p>As of April 2016, GitHub reports having more than 14 million users and more than 35 million repositories, making it the larget host of source code in the world.</p>
+                        </div>
+                        <hr>
+                        <p>This website offers the following features
+                            <ul>
+                                <li>Retrieve basic information of GitHub users by searching based on GitHub username.</li>
+                                <li>Shows Repositores of Users.</li>
+                                <li>Shows a Graphical representatioon - D3js of the languages used in each repositores of user searched for.</li>
+                                <li>Shows top 5 trending repositories on GitHub.</li>
+                                <li>Users Login/Signup to pin favorite Users.</li>
+                            </ul>
+                        </p>
+                    </div>
+
+
+                    <!-- Shows the list of Repositories -->
+                    <div class="toggleDiv" id="d1">
+                        <div class="qh-title qh-title-info">
+                            <h1>Repositories</h1>
+                            <p>"Search for a GitHub User to see public repositories of the user."</p>
+                        </div>
+                        <div ng-repeat="repo in repoData" class="panel panel-default panelshadow">
+                            <div class="panel-heading"><a href="{{repo.html_url}}"><h4 class="list-group-item-heading">{{repo.name}}</h4></a>
+                                <p class="list-group-item-text">{{repo.updated_at | date:'medium'}}</p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    &nbsp;<span class="label label-primary">Stars: {{repo.stargazers_count}}</span>&nbsp;
+                                    <span class="label label-success" type="button">Issues: {{repo.open_issues_count}}</span>&nbsp;
+                                    <span class="label label-danger">Language: {{repo.language}}</span>&nbsp;
+                                    <span class="label label-warning">Forks: {{repo.forks}}</span>&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Shows the Contributions of Users -->
+                    <div class="toggleDiv" id="d2">
+                        <div class="qh-title qh-title-info">
+                            <h1>Contributions</h1>
+                            <p>"Search for a GitHub User to see visualization of programming languages in repositories of the user."</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li ng-repeat="lang in languages" ng-click=qhChange(lang.id)>
+                                        <a href=""><span class="glyphicon glyphicon-share-alt">{{lang.id}}</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-12 col-sm-7 col-sm-offset-1">
+                                <div id="chartDiv">
+                                    <qh-Langviz data='myData'></qh-Langviz>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Shows trending topics -->
+                    <div class="toggleDiv" id="d3">
+                        <div class="qh-title qh-title-info">
+                            <h1>Trending</h1>
+                            <p>"Shows top 5 current trending repositories in GitHub."</p>
+                        </div>
+                        <div ng-repeat="trend in trending" class="panel panel-default panelshadow">
+                            <div class="panel-heading trendclass">
+                                <a href="{{trend.repoownerUrl}}"><span class="label label-success">{{trend.repoOwner}}</span></a> / <a href="{{trend.repoUrl}}">{{trend.repoName}}</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Shows items currently pinned by logged in user -->
+                    <div class="toggleDiv" id="d4">
+                        <div class="qh-title qh-title-info">
+                            <h1>Pinned</h1>
+                            <p>"Login/Signup to view your pinned repositories."</p>
+                        </div>
+                        <div ng-repeat="pin in userpins track by pin.usernme" class="panel panel-default panelshadow">
+                            <div class="panel-heading trendclass">
+                                <a href="{{pin.url}}"><span>{{pin.usernme}}</span></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Shows basic Info of gitHub ser searched -->
+                    <div id="d5" class="toggleDiv" ng-hide="handleDiv0">
+                        <div class="qh-title qh-title-info">
+                            <p>"Click on the crown symbol to mark the user for future reference."</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-md-5">
+                                <div class="thumbnail panelshadow">
+                                    <a href="{{userData.data.html_url}}">
+                                        <img data-ng-src="{{userData.data.avatar_url}}" alt="userimage">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-7">
+                                <div class="qhusernamedetails">
+                                    <a class="btn" ng-click="addtopins()">
+                                        <span class="glyphicon glyphicon-king"></span>
+                                        <h2>{{userData.data.name}}</h2>
+                                    </a>
+
+                                    <p>{{userData.data.login}}</p>
+                                </div>
+                                <hr>
+                                <div class="qhuserlocationdetail">
+                                    <div>
+                                        <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp;{{userData.data.location}}</h5>
+                                    </div>
+                                    <div>
+                                        <h5><span class="glyphicon glyphicon-time"></span>&nbsp;Joined On {{userData.data.created_at | date:'medium'}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div id="alertLogin" class="alert alert-danger alert-dismissible fade in toggleDiv" role=alert>
+                            <button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span>
                             </button>
-                            <h4 class="modal-title">Sign Up</h4>
+                            <h4>Kindly Login/Sign Up to continue....</h4>
+                            <p>
+                                <button class="btn" data-toggle="modal" data-target="#qhloginmodal">
+                                    <span class="glyphicon glyphicon-log-in"></span> Login
+                                </button>
+                                <button class="btn" data-toggle="modal" data-target="#qhsignupmodal">
+                                    <span class="glyphicon glyphicon-plus"></span> Sign Up
+                                </button>
+                            </p>
                         </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label for="username" class="col-sm-2 control-label">Username</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" ng-model="qhusernamesgnUp" placeholder="Username">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="col-sm-2 control-label">Password</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" ng-model="qhpasswrdsgnUp" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-default" ng-click="userSignUp()">Login in</button>
-                                    </div>
-                                </div>
-                            </form>
+                        <div id="alertpinned" class="alert alert-info alert-dismissible fade in toggleDiv" role=alert>
+                            <button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4>User Information Pinned to your database...</h4>
                         </div>
-                        <div class="modal-footer">
-                            <div id="signupfooter" class="toggleDiv alert alert-warning" role="alert"><strong>{{alertmsg}}</strong>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="panel panel-success panelshadow">
+                                    <!-- Default panel contents -->
+                                    <div class="panel-heading"><span class="glyphicon glyphicon-eye-open"></span> Fan Club</div>
+                                    <div class="panel-body">
+                                        <h4><span class="label label-success">Followers&nbsp;</span><span class="badge">{{userData.data.followers}}</span></h4>
+                                        <h4><span class="label label-info">Following&nbsp;</span><span class="badge">{{userData.data.following}}</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="panel panel-info panelshadow">
+                                    <!-- Default panel contents -->
+                                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span> Count of Gists & Repos</div>
+                                    <div class="panel-body">
+                                        <h4><span class="label label-primary">Public Repositories&nbsp;</span><span class="badge">{{userData.data.public_repos}}</span></h4>
+                                        <h4><span class="label label-warning">Public Gists&nbsp;</span><span class="badge">{{userData.data.public_gists}}</span></h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.modal-content -->
                 </div>
-                <!-- /.modal-dialog -->
-            </div>
+
+                <hr>
 
 
-            <!-- Footer -->
-            <footer>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>Copyright &copy; Your Website 2014</p>
+                <!-- Login Modal -->
+                <div id="qhloginmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button id="loginclose" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title">Login</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="username" class="col-sm-2 control-label">Username</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" ng-model="qhusernamelgn" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-sm-2 control-label">Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" ng-model="qhpasswrdlgn" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn btn-primary" ng-click="userlogin()">Login in</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <div id="loginfooter" class="toggleDiv alert alert-warning" role="alert">
+                                    <strong>{{alertmsg}}</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- /.row -->
-            </footer>
+
+                <!-- Sign Up Modal -->
+                <div id="qhsignupmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button id="signupclose" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title">Sign Up</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="username" class="col-sm-2 control-label">Username</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" ng-model="qhusernamesgnUp" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-sm-2 control-label">Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" ng-model="qhpasswrdsgnUp" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn btn-primary" ng-click="userSignUp()">Login in</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <div id="signupfooter" class="toggleDiv alert alert-warning" role="alert">
+                                    <strong>{{alertmsg}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+
+            </div>
         </div>
     </div>
-    <!-- /.container -->
+    <!-- Footer -->
+    <div class="footer">
+        <div class="row-footer">
+            <div class="col-sm-5 col-sm-offset-4">
+                <strong><p>Copyright &copy; <a href="https://github.com/NeenuAVarghese/QuickHub">QuickHub-Neenu 2016</a></p></strong>
+            </div>
+        </div>
+    </div>
+
+
     <script src="libraries/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="libraries/angular.min.js"></script>
     <script type="text/javascript" src="libraries/ngStorage.min.js"></script>
-
     <script type='text/javascript' src="libraries/d3.min.js"></script>
     <script type='text/javascript' src="libraries/bootstrap/js/bootstrap.min.js"></script>
     <script src="scripts/quickhub-app.js"></script>
