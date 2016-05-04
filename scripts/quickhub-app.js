@@ -1,16 +1,13 @@
 	var app = angular.module('QuickHub', ['ngStorage']);
 
 	app.controller('gitHubDataController', ['$scope', '$http', '$localStorage', function($scope, $http, $localStorage) {
-
+	    // for persistent authentication
 	    $scope.$storage = $localStorage.$default({
 	        user: "",
 	        iflogged: false
 	    });
-	    console.log($localStorage);
 
-	    $scope.userlgdin = $localStorage.user;
-	    $scope.logincntrl = $localStorage.iflogged;
-
+	    //Denotes functionalities mentioned in side vertical navbar
 	    $scope.functionalities = [{
 	        "id": 0,
 	        "name": "Home",
@@ -33,32 +30,36 @@
 	        "glyphicon": "glyphicon glyphicon-pushpin glyph-white"
 	    }];
 
+	    //variable for maintaining user name of current logged in user
+	    $scope.userlgdin = $localStorage.user;
+
+	    //variable for maintianing login status
+	    $scope.logincntrl = $localStorage.iflogged;
+
+	    //variable for storing the information of trending repositories
 	    $scope.trendingRepoInfo = [];
+
+	    //variable for storing languages in repositories of the user
 	    $scope.languages = [];
+
+	    //variable for storing the acitve div
 	    $scope.currentDiv = 0;
+
+	    //variable for alert hide/show in case ofincorrect username
 	    $scope.qhinvalidusername = true;
+
+	    //alert message
 	    $scope.alertmsg = "";
 
-	    $scope.qhconfig = {
-	        title: 'Products',
-	        tooltips: true,
-	        labels: false,
-	        mouseover: function() {},
-	        mouseout: function() {},
-	        click: function() {},
-	        legend: {
-	            display: true,
-	            //could be 'left, right'
-	            position: 'right'
-	        }
-	    };
 
+	    //Sets div accoridng to the options selected
 	    function qhSetCurrentDiv(divId) {
 	        angular.element('#d' + $scope.currentDiv).addClass("toggleDiv"); //add
 	        angular.element('#d' + divId).removeClass("toggleDiv"); //remove
 	        $scope.currentDiv = divId;
 	    }
 
+	    //Sets user info into page after the userinfo is fetched from github
 	    function qhsetUserInfo() {
 	        $scope.qhUsername = "";
 	        angular.element('#d' + $scope.currentDiv).addClass("toggleDiv");
@@ -67,10 +68,12 @@
 	        qhLoadRepos();
 	    }
 
+	    //sets default div
 	    function setDefaultDiv() {
 	        $scope.handleDiv0 = true;
 	    }
 
+	    //gets languages used in the repositories 
 	    function qhSetlang() {
 	        $scope.languages = [];
 	        $scope.repoData.forEach(function(repo) {
@@ -87,6 +90,7 @@
 	        });
 	    }
 
+	    //gets and loads repositories of a user
 	    function qhLoadRepos() {
 	        $http.get($scope.userData.data.repos_url)
 	            .then(function(data) {
@@ -97,6 +101,7 @@
 	            });
 	    }
 
+	    //gets and sets user information from github
 	    function qhGetUserInfo() {
 	        $http.get("https://api.github.com/users/" + $scope.qhUsername)
 	            .then(function(data) {
@@ -111,6 +116,8 @@
 	            });
 	    }
 
+
+	    // Gets information on trending repositories
 	    function qhGetTrending() {
 	        $scope.trending = [];
 	        $http.get('/trending')
@@ -122,6 +129,7 @@
 	            });
 	    }
 
+	    //handles user login
 	    function userlogin() {
 	        $http.get("/login/" + $scope.qhusernamelgn + "/" + $scope.qhpasswrdlgn)
 	            .success(function(data, status) {
@@ -134,31 +142,31 @@
 	                    $scope.userlgdin = $localStorage.user;
 	                    $scope.logincntrl = true;
 
-	                    $http.get("/pinned/"+$scope.userlgdin)
-	                .success(function(data, status){
-	                	if(status === 201){
-	                		//value is empty
-	                	}
-	                	else{
-	                		$scope.userpins = data;
-	                		angular.element("#alertLogin").addClass("toggleDiv");
-	                	}
-	                })
-	                .error(function(err){
-	                	console.log("Error Retrieving Data");
-	                })
-	                
+	                    $http.get("/pinned/" + $scope.userlgdin)
+	                        .success(function(data, status) {
+	                            if (status === 201) {
+	                                //value is empty
+	                            } else {
+	                                $scope.userpins = data;
+	                                angular.element("#alertLogin").addClass("toggleDiv");
+	                            }
+	                        })
+	                        .error(function(err) {
+	                            console.log("Error Retrieving Data");
+	                        });
+
 	                } else if (status === 201) {
 	                    angular.element("#loginfooter").removeClass("toggleDiv");
 	                    $scope.alertmsg = "Error: Error in Username or password";
 	                }
 	            })
 	            .error(function(err) {
-	                $scope.alertmsg = "Error: " + err;
+	                $scope.alertmsg = "Error in processing Request";
 	                angular.element("#loginfooter").removeClass("toggleDiv");
 	            });
 	    }
 
+	    //handles user signup
 	    function userSignUp() {
 	        $http.get("/signup/" + $scope.qhusernamesgnUp + "/" + $scope.qhpasswrdsgnUp)
 	            .success(function(data, status) {
@@ -176,70 +184,75 @@
 	                }
 	            })
 	            .error(function(err, status) {
-	                $scope.alertmsg = "Error: " + err;
+	                $scope.alertmsg = "Error in processing request";
 	                angular.element("#signupfooter").removeClass("toggleDiv");
 
-	            })
+	            });
 	    }
 
-	    function logoutcntrl(){
-	    	 $scope.logincntrl = false;
-	    	 $scope.userlgdin = "";
-	    	 $localStorage.$reset({
-				    user: "",
-				    iflogged : false
-				});
-	    	angular.element("#d1").addClass("toggleDiv");
-	    	angular.element("#d2").addClass("toggleDiv");
-	    	angular.element("#d3").addClass("toggleDiv");
-	    	angular.element("#d4").addClass("toggleDiv");
-	    	angular.element("#d5").addClass("toggleDiv");
-	    	angular.element("#d0").removeClass("toggleDiv");
+	    //handles user logout
+	    function logoutcntrl() {
+	        $scope.logincntrl = false;
+	        $scope.userlgdin = "";
+	        $localStorage.$reset({
+	            user: "",
+	            iflogged: false
+	        });
+	        angular.element("#d1").addClass("toggleDiv");
+	        angular.element("#d2").addClass("toggleDiv");
+	        angular.element("#d3").addClass("toggleDiv");
+	        angular.element("#d4").addClass("toggleDiv");
+	        angular.element("#d5").addClass("toggleDiv");
+	        angular.element("#d0").removeClass("toggleDiv");
 
-	    }
-
-
-	    function addtopins(){
-	    	if($localStorage.user === ""){
-	    		angular.element("#alertLogin").removeClass("toggleDiv");
-	    		angular.element("#alertpinned").removeClass("toggleDiv");
-	    	}
-	    	else{
-	    		angular.element("#alertLogin").addClass("toggleDiv");
-	    		$http.get("/addtopins/"+$scope.userData.data.login+"/"+$scope.userlgdin)
-	    		.success(function(data, status){
-	    			angular.element("#alertpinned").removeClass("toggleDiv");
-	    			$scope.userpins = data;
-	    			console.log($scope.userpins);
-	    		})
-	    		.error(function(err, status){
-	    			console.log(err);
-	    		})
-	    	}
-	    }
-
-	    function getpins(){
-	    	if($localStorage.user === ""){
-	    		//do nothing
-	    	}
-	    	else{
-	    		
-	    		$http.get("/addtopins/"+$scope.userData.data.login+"/"+$scope.userlgdin)
-	    		.success(function(data, status){
-	    			angular.element("#alertpinned").removeClass("toggleDiv");
-	    			$scope.userpins = data;
-	    			
-	    		})
-	    		.error(function(err, status){
-	    			console.log(err);
-	    		})
-	    	}
 	    }
 
 
+	    //handles add to pin funcitonality
+	    function addtopins() {
+	        if ($localStorage.user === "") {
+	            angular.element("#alertLogin").removeClass("toggleDiv");
 
+	        } else {
+	            angular.element("#alertLogin").addClass("toggleDiv");
+	            $http.get("/addtopins/" + $scope.userData.data.login + "/" + $scope.userlgdin)
+	                .success(function(data, status) {
+	                    angular.element("#alertpinned").removeClass("toggleDiv");
+	                    $scope.userpins = data;
+	                    angular.element("#alertpinned").removeClass("toggleDiv");
+	                })
+	                .error(function(err, status) {
+	                    console.log(err);
+	                });
+	        }
+	    }
+
+
+	    //gets pin when page refreshes and user is loged in
+	    function getpins() {
+	        if ($localStorage.user === "") {
+	            //do nothing
+	        } else {
+
+	            $http.get("/pinned/" + $scope.userlgdin)
+	                .success(function(data, status) {
+	                    if (status === 201) {
+	                        //value is empty
+	                    } else {
+	                        $scope.userpins = data;
+	                        angular.element("#alertLogin").addClass("toggleDiv");
+	                    }
+	                })
+	                .error(function(err) {
+	                    console.log("Error Retrieving Data");
+	                });
+	        }
+	    }
+
+
+	    //is called by default when app loads
 	    qhGetTrending();
-
+	    getpins();
 	    $scope.qhGetUserInfo = qhGetUserInfo;
 	    $scope.qhSetCurrentDiv = qhSetCurrentDiv;
 	    $scope.setDefaultDiv = setDefaultDiv;
@@ -251,9 +264,8 @@
 
 	}]);
 
-
+	//directive for showing graphs using d3 js
 	app.directive('qhLangviz', [
-
 	    function() {
 	        return {
 	            restrict: 'E',
@@ -341,15 +353,13 @@
 	                        if (data.hasOwnProperty(key)) { // ensure it is key from data, not prototype being used
 
 	                            // code to display language counts as list - not used at moment
-	                            // $("#langDetails").append("<li>" + key + ": " + data[key] + "</li>");
-
 	                            // push items into dataset array
 	                            var item = new Object();
 	                            item.key = key;
 	                            item.value = data[key];
 	                            dataset.push(item);
-	                        };
-	                    };
+	                        }
+	                    }
 	                    console.log(dataset); // for checking
 
 	                    // update the d3 chart
@@ -451,7 +461,7 @@
 	                                        return yPosition - 22;
 	                                    } else {
 	                                        return yPosition;
-	                                    };
+	                                    }
 	                                })
 	                                .attr("text-anchor", "middle")
 	                                .attr("fill", function() {
@@ -463,7 +473,7 @@
 	                                        return "black";
 	                                    } else {
 	                                        return "white";
-	                                    };
+	                                    }
 	                                })
 	                                .attr("font-family", "sans-serif")
 	                                .attr("font-size", "12px")
@@ -482,11 +492,10 @@
 	                            console.log("ye");
 	                            $scope.myData = val.langData;
 	                            console.log($scope.myData);
-
-	                            showLangs($scope.myData, 1, name)
+	                            showLangs($scope.myData, 1, name);
 	                        } else {}
 	                    });
-	                }
+	                };
 	            }
 	        };
 	    }
