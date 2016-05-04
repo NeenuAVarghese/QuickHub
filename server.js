@@ -3,26 +3,26 @@
     // Server-side code
     /* jshint node: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 4, latedef: true, newcap: true, nonew: true, quotmark: double, undef: true, unused: true, strict: true, trailing: true */
     /*{
-            "curly" : true,
-            "eqeqeq" : true,
-            "forin" : true,
-            "immed" : true,
-            "indent" : 4,
-            "latedef" : true,
-            "newcap" : true,
-            "nonew" : true,
-            "quotmark" : "double",
-            "undef" : true,
-            "unused" : true,
-            "strict" : true,
-            "trailing" : true,
-            "node" : true
-        }*/
+                "curly" : true,
+                "eqeqeq" : true,
+                "forin" : true,
+                "immed" : true,
+                "indent" : 4,
+                "latedef" : true,
+                "newcap" : true,
+                "nonew" : true,
+                "quotmark" : "double",
+                "undef" : true,
+                "unused" : true,
+                "strict" : true,
+                "trailing" : true,
+                "node" : true
+            }*/
+"use strict";
     var express = require("express");
     var Trending = require("github-trend");
     var scraper = new Trending.Scraper();
     var mongoose = require("mongoose");
-    var http = require("http");
     var UsersController = require("./server/controller/users_controller.js");
 
     var app = express();
@@ -30,7 +30,7 @@
 
 
 
-    app.get('/trending', function(req, res) {
+    app.get("/trending", function(req, res) {
         var qhTrends = [];
         // Empty string means 'all languages' 
         scraper.scrapeTrendingRepos("").then(function(repos) {
@@ -55,15 +55,15 @@
         UsersController.login(req, res);
     });
 
-    app.get('/signup/:user/:password', function(req, res) {
+    app.get("/signup/:user/:password", function(req, res) {
         UsersController.signup(req, res);
     });
 
-    app.get('/addtopins/:login/:user', function(req, res){
+    app.get("/addtopins/:login/:user", function(req, res) {
         UsersController.addtopins(req, res);
     });
 
-    app.get("/pinned/:user", function(req, res){
+    app.get("/pinned/:user", function(req, res) {
         console.log("in server");
         UsersController.getpins(req, res);
     });

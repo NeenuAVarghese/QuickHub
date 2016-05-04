@@ -4,13 +4,12 @@
 /* jshint node: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 4, latedef: true, newcap: true, nonew: true, quotmark: double, undef: true, unused: true, strict: true, trailing: true */
 "use strict";
 var User = require("../model/users.js");
-var http = require("http");
 var UsersController = {};
 
 
 //Controller method for finding todos from database
 UsersController.login = function(req, res) {
-    console.log(req.params.user);
+
     User.findOne({
         name: req.params.user
     }, function(err, result) {
@@ -18,15 +17,14 @@ UsersController.login = function(req, res) {
             console.log(err);
             res.send(err);
         } else {
-            if (result == null) {
+            if (result === null) {
                 console.log("201");
                 res.sendStatus(201);
             } else {
 
-                if(result.password === req.params.password){
+                if (result.password === req.params.password) {
                     res.sendStatus(200);
-                }
-                else{
+                } else {
                     res.sendStatus(201);
                 }
             }
@@ -58,42 +56,46 @@ UsersController.signup = function(req, res) {
                         console.log(err);
                         res.send(err);
                     } else {
-                        console.log("User added to db")
+                        console.log("User added to db");
                         res.sendStatus(200);
                     }
-                })
+                });
             }
         }
-    })
+    });
 };
 
-UsersController.addtopins = function(req, res){
+UsersController.addtopins = function(req, res) {
 
-     User.findOne({
+    User.findOne({
         name: req.params.user
     }, function(err, result) {
         if (err !== null) {
             console.log(err);
             res.send(err);
         } else {
-            if (result == null) {
+            if (result === null) {
                 console.log("201");
                 res.sendStatus(201);
-            } 
-            else {
-               
-                User.update({name: req.params.user}, 
-                    {
-                        $addToSet : {"itemsPinned" : {"usernme": req.params.login, "url": "https://www.github.com/"+req.params.login}}
+            } else {
+
+                User.update({
+                        name: req.params.user
+                    }, {
+                        $addToSet: {
+                            "itemsPinned": {
+                                "usernme": req.params.login,
+                                "url": "https://www.github.com/" + req.params.login
+                            }
+                        }
                     },
-                    function(err){
-                    if(err){
-                        console.log(err);
-                    }
-                    else{
-                        console.log("Value entered");
-                    }
-                });
+                    function(err) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log("Value entered");
+                        }
+                    });
             }
         }
     });
@@ -102,8 +104,8 @@ UsersController.addtopins = function(req, res){
 
 
 
-UsersController.getpins = function(req, res){
-console.log("In fun");
+UsersController.getpins = function(req, res) {
+    console.log("In fun");
     User.findOne({
         name: req.params.user
     }, function(err, result) {
@@ -111,22 +113,19 @@ console.log("In fun");
             console.log(err);
             res.send(err);
         } else {
-            if (result == null) {
+            if (result === null) {
                 console.log("201");
                 res.sendStatus(201);
             } else {
-                if(result.itemsPinned === ""){
+                if (result.itemsPinned === "") {
                     res.sendStatus(201);
-                }
-                else{
+                } else {
                     res.json(result.itemsPinned);
                 }
             }
         }
-    });   
+    });
 };
-
-
 
 
 
