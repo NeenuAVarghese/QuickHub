@@ -143,7 +143,6 @@ app.controller("gitHubDataController", ["$scope", "$http", "$localStorage", func
     function userlogin() {
         $http.get("/login/" + $scope.qhusernamelgn + "/" + $scope.qhpasswrdlgn)
             .success(function(data, status) {
-                console.log(status);
                 if (status === 200) {
                     angular.element("#loginfooter").addClass("toggleDiv");
                     angular.element("#loginclose").trigger("click");
@@ -358,10 +357,11 @@ app.directive("qhLangviz", [
 
 
                 function showLangs(data, status, repo) {
-                    console.log("in show");
 
                     // setup empty dataset array variable for d3
                     var dataset = [];
+                    var bars;
+                    var barLabels;
 
                     // loop through data object and append items to li
                     for (var key in data) {
@@ -375,7 +375,6 @@ app.directive("qhLangviz", [
                             dataset.push(item);
                         }
                     }
-                    console.log(dataset); // for checking
 
                     // update the d3 chart
 
@@ -504,9 +503,7 @@ app.directive("qhLangviz", [
                 $scope.qhChange = function(name) {
                     $scope.languages.forEach(function(val) {
                         if (val.id === name) {
-                            console.log("ye");
                             $scope.myData = val.langData;
-                            console.log($scope.myData);
                             showLangs($scope.myData, 1, name);
                         } else {}
                     });
