@@ -214,7 +214,7 @@ app.controller("gitHubDataController", ["$scope", "$http", "$localStorage", func
         angular.element("#d4").addClass("toggleDiv");
         angular.element("#d5").addClass("toggleDiv");
         angular.element("#d0").removeClass("toggleDiv");
-
+        $scope.userpins = "";
     }
 
 
