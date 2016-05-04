@@ -151,6 +151,8 @@ app.controller("gitHubDataController", ["$scope", "$http", "$localStorage", func
                     $localStorage.iflogged = true;
                     $scope.userlgdin = $localStorage.user;
                     $scope.logincntrl = true;
+                    $scope.qhusernamelgn = "";
+                    $scope.qhpasswrdlgn = "";
 
                     $http.get("/pinned/" + $scope.userlgdin)
                         .success(function(data, status) {
@@ -187,6 +189,8 @@ app.controller("gitHubDataController", ["$scope", "$http", "$localStorage", func
                     $localStorage.iflogged = true;
                     $scope.userlgdin = $localStorage.user;
                     $scope.logincntrl = true;
+                    $scope.qhusernamesgnUp = "";
+                    $scope.qhpasswrdsgnUp = "";
 
                 } else if (status === 201) {
                     angular.element("#signupfooter").removeClass("toggleDiv");
