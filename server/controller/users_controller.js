@@ -93,6 +93,26 @@ UsersController.addtopins = function(req, res) {
                         if (err) {
                             console.log(err);
                         } else {
+
+                            User.findOne({
+                                name: req.params.user
+                            }, function(err, result) {
+                                if (err !== null) {
+                                    console.log(err);
+                                    res.send(err);
+                                } else {
+                                    if (result === null) {
+                                        console.log("201");
+                                        res.sendStatus(201);
+                                    } else {
+                                        if (result.itemsPinned === "") {
+                                            res.sendStatus(201);
+                                        } else {
+                                            res.json(result.itemsPinned);
+                                        }
+                                    }
+                                }
+                            });
                             console.log("Value entered");
                         }
                     });
