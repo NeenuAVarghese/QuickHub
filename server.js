@@ -64,7 +64,6 @@
     });
 
     app.get("/pinned/:user", function(req, res) {
-        console.log("in server");
         UsersController.getpins(req, res);
     });
 
