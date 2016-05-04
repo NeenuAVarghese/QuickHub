@@ -48,7 +48,6 @@ UsersController.signup = function(req, res) {
             res.send(err);
         } else {
             if (result.length) {
-                console.log("201");
                 res.sendStatus(201);
             } else {
                 newUser.save(function(err) {
@@ -75,7 +74,6 @@ UsersController.addtopins = function(req, res) {
             res.send(err);
         } else {
             if (result === null) {
-                console.log("201");
                 res.sendStatus(201);
             } else {
 
@@ -102,12 +100,12 @@ UsersController.addtopins = function(req, res) {
                                     res.send(err);
                                 } else {
                                     if (result === null) {
-                                        console.log("201");
                                         res.sendStatus(201);
                                     } else {
                                         if (result.itemsPinned === "") {
                                             res.sendStatus(201);
                                         } else {
+                                            console.log("Item Pinned")
                                             res.json(result.itemsPinned);
                                         }
                                     }
@@ -125,7 +123,6 @@ UsersController.addtopins = function(req, res) {
 
 
 UsersController.getpins = function(req, res) {
-    console.log("In fun");
     User.findOne({
         name: req.params.user
     }, function(err, result) {
