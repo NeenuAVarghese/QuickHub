@@ -1,6 +1,6 @@
 # QuickHub
 
-###Prerequisites
+### Prerequisites
 Before installing the application, we need to setup a basic environment to get
 started. Below is the list of required preinstalled software:
 1. NodeJS and npm
@@ -12,7 +12,7 @@ application from GitHub.
 Active Internet connection is required for the application to work as the application
 fetches required information from GitHub
 
-###Installation
+### Installation
 1. In the /home/vagrant folder type the following command:
 mkdir -p ./mongodb/data
 2. Clone application from github
@@ -21,7 +21,7 @@ git clone https://github.com/NeenuAVarghese/QuickHub.git
 cd QuickHub/
 npm install
 
-###Running the application
+### Running the application
 This application is designed to run on port 3000. It also uses mongo dB service. Both of
 these are initiated in the Procfile made for this application. In order for the application
 to work, it’s necessary to ensure that port 3000 is free, also there should be no running
